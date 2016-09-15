@@ -4,17 +4,17 @@ var app = angular.module('kwaneApp', ['ngRoute']);
 app.config(function($routeProvider){
   $routeProvider
   .when('/', {
-    templateUrl: '/partials/home.html',
+    templateUrl: '/templates/home.html',
     controller: 'homeController',
     controllerAs: 'HC'
   })
   .when('/oracle', {
-    templateUrl:'/partials/oracleView.html',
+    templateUrl:'/templates/oracleView.html',
     controller: 'oracleController',
     controllerAs: 'OC'
   })
   .when('/runner', {
-    templateUrl:'/partials/runnerView.html',
+    templateUrl:'/templates/runnerView.html',
     controller: 'runnerController',
     controllerAs: 'RC'
   })

@@ -1,0 +1,21 @@
+html{
+  font-size: .1vw;
+}
+.centered{
+  text-align: center;
+}
+#headerTitle{
+  font-size: 50rem;
+}
+.title{
+  font-size: 25rem;
+}
+.disclaimer{
+  font-size: 10rem;
+}
+form{
+  font-size: 20rem;
+}
+.inline{
+  display:inline-block
+}
