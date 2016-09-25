@@ -1,6 +1,9 @@
 html{
   font-size: .1vw;
 }
+body{
+  padding: 10px;
+}
 .centered{
   text-align: center;
 }
@@ -18,4 +21,81 @@ form{
 }
 .inline{
   display:inline-block
+}
+#maze{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+}
+/*.box{
+  border: 1px solid black;
+  height: 150rem;
+}
+.middleBox{
+  border: 1px solid black;
+  height: 450rem;
+}
+.boxCenter{
+  border-bottom: 1px solid black;
+  height: 150rem;
+}*/
+
+.imageTile{
+
+}
+.smallPart{
+  height: 150rem;
+  margin-top: 10rem;
+  cursor: move;
+
+}
+.texture{
+  height: 25rem;
+}
+.sideTexture{
+  height: 75rem;
+  margin-top: 100rem;
+}
+.blue{
+  filter: hue-rotate(0deg);
+}
+.orange{
+  filter: hue-rotate(180deg);
+}
+.green{
+  filter: hue-rotate(270deg);
+}
+.pink{
+  filter: hue-rotate(130deg);
+}
+
+.holder{
+  border: 1px solid black;
+  height: 225rem;
+  margin-top: 10rem;
+  background-color: lightgrey;
+}
+.holder.over{
+  background-color: white;
+}
+.centerImage{
+  height: 224rem;
+}
+.middleContainer{
+}
+
+.graph{
+  height: 200rem;
+}
+
+.glyph{
+  height: 20rem;
+}
+.tileInstructions{
+  height: 200rem;
+}
+.venn{
+  height: 200rem;
 }

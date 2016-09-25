@@ -1,1 +1,229 @@
-<h1>Hi! this is the {{OC.name}} View!</h1>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-offset-3 col-md-6">
+    <h1>Click each piece to rotate it. Drag it to the center to form the maze!</h1>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-2">
+      <div class="imageTile">
+        <img src="{{OC.squares.one.path}}" class="smallPart {{OC.squares.one.color}}" id="part1" draggable/>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="imageTile">
+        <img src="{{OC.squares.two.path}}" class="smallPart {{OC.squares.two.color}}" id="part2" />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="imageTile">
+        <img src="{{OC.squares.three.path}}" class="smallPart {{OC.squares.three.color}}" id="part3" />
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="imageTile">
+        <img src="{{OC.squares.four.path}}" class="smallPart {{OC.squares.four.color}}" id="part4" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-1">
+      <img src="resources/textures/stone1.jpg" class="sideTexture" />
+    </div>
+    <div class="col-md-3 middleContainer">
+      <div class="holder" id="upper-left">
+
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="holder" id="upper-right">
+
+      </div>
+    </div>
+    <div class="col-md-1">
+      <img src="resources/textures/stone4.png" class="sideTexture" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-1">
+      <img src="resources/textures/stone2.jpg" class="sideTexture" />
+
+    </div>
+    <div class="col-md-3 middleContainer">
+      <div class="holder" id="lower-left">
+
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="holder" id="lower-right">
+
+      </div>
+    </div>
+    <div class="col-md-1">
+      <img src="resources/textures/stone3.jpg" class="sideTexture" />
+    </div>
+  </div>
+</div>
+<h1>Follow these rules to figure out the key for each of the four puzzles:</h1>
+<h3>If the puzzle is in this type of stone <img src="resources/textures/stone1.jpg" class="texture" />
+ then start on 51</h3>
+<h3>this type <img src="resources/textures/stone3.jpg" class="texture" />? Start on 59 </h3>
+<h3><img src="resources/textures/stone4.png" class="texture" /> ? Start on 55</h3>
+<h3><img src="resources/textures/stone2.jpg" class="texture" /> ? Start on 63</h3>
+<h2>What color is the quarter of the maze that the puzzle is in?</h2>
+<h3>Blue? move four rows down</h3>
+<h3>Green? That's two two down</h3>
+<h3>Don't move if its Orange</h3>
+<h3>If its Pink then move two rows up</h3>
+<div class="row">
+  <div class="col-md-offset-1 col-md-2">
+    <h2>Now are they in a spiral?</h2>
+    <h3>if the Spiral rotates counter-clockwise then move up one row. Otherwise stay where you are.</h3>
+    <h2>In the center of the spiral should be a rotating cube. What color is it?</h2>
+    <h3>Neon-Green? move left 3. Neon Blue? Left 2. Rainbow color? Move left 1. Otherwise stay put.</h3>
+  </div>
+  <div class="col-md-2">
+    <h2>In a forest?</h2>
+    <h2>What kind of leaves are on the trees?</h2>
+    <h3>Pine? right 4</h3>
+    <h3>autumnal? left 4</h3>
+    <h3>snowy leaves? down 8</h3>
+    <h3>Otherwise stay put</h3>
+    <h2>If there are seven trees then go up 1</h2>
+  </div>
+  <div class="col-md-2">
+    <h2>Is there a glyph in the center of the room?</h2>
+    <h3>figure out which three symbols are on it and move accordingly</h3>
+    <h4>
+    <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
+    <img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
+    <img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
+    left three
+  </h4>
+  <h4>
+  <img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
+  left two
+  </h4>
+  <h4>
+  <img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol4-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
+  left one
+  </h4>
+  <h4>
+  <img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
+  stay put
+  </h4>
+  <h4>
+  <img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
+  up one, left three
+  </h4>
+  <h4>
+  <img class="glyph" src="resources/glyph-symbols/symbol4-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
+  up one, left two
+  </h4>
+  <h4>
+  <img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
+  up one, left one
+  </h4>
+  <h4>
+  <img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
+  up one
+  </h4>
+  </div>
+  <div class="col-md-2">
+    <h2>Floating tiles?</h2>
+    <h3>Guide them through the following instructions:</h3>
+    <img class='tileInstructions' src="resources/images/tile-instructions.png" />
+
+    <h3>Now back to you. What color was the tile from step 4?</h3>
+    <h3>If it was Blue then Move up one.</h3>
+    <h3>Now figure out what to do next using this diagram. The rings represent the tile from step 4, and the colors in the middle of them represent the tile from step 6</h3>
+    <img class="venn" src="resources/images/venn-diagram.png"/>
+  </div>
+</div>
+
+
+<h2>Now mark down the code that your finger is on and start over with the next puzzle. Once you've put in all 4 codes click submit!</h2>
+<img src="resources/graph.png" class="graph" />
+<form ng-submit="OC.submitAnswer(OC.answer)">
+  <label><input type="text" ng-model="OC.answer" /></label>
+  <button type="submit">Submit Sequence!</button>
+</form>
+<h1>{{OC.success.response}}</h1>
+<script>
+var src;
+var images = document.querySelectorAll('.smallPart');
+images.forEach(function(part){
+  part.addEventListener('dragstart', function(event){
+  event.target.style.opacity = "0.5";
+  event.dataTransfer.effectAllowed='move';
+  event.dataTransfer.setData('text', this.src);
+  if(!event.target.rotation){
+    event.target.rotation = 0;
+  }
+  event.dataTransfer.setData('rotation', this.rotation);
+  event.dataTransfer.setData('color', this.classList[1]);
+  }, false);
+
+  part.addEventListener('dragend', function(event){
+    event.target.style.opacity = "1";
+    return true;
+    // src = '';
+  })
+  part.addEventListener('click', function(event){
+    if(!event.target.rotation){
+      event.target.rotation = 90;
+    }else{
+      event.target.rotation += 90;
+    }
+    event.target.style.transform = 'rotate(' + event.target.rotation + 'deg)';
+  })
+});
+
+
+var holders = document.querySelectorAll('.holder');
+holders.forEach(function(holder){
+  holder.addEventListener('dragenter', function(event){
+
+    event.preventDefault();
+    event.target.style.backgroundColor = 'white';
+    return true;
+
+  })
+  holder.addEventListener('dragover', function(event){
+    event.preventDefault();
+
+  })
+  holder.addEventListener('dragleave', function(event){
+    event.target.style.backgroundColor = 'lightgrey';
+  })
+  holder.addEventListener('drop', function(event){
+    console.log('drop');
+    this.innerHTML = '';
+    var data = event.dataTransfer.getData("text");
+    var rotation = event.dataTransfer.getData('rotation');
+    var image = document.createElement('img');
+    var color = event.dataTransfer.getData('color');
+    image.src = data;
+    image.classList.add('centerImage');
+    image.style.transform = 'rotate(' + rotation + 'deg)';
+    image.classList.add(color);
+    this.appendChild(image);
+    event.stopPropagation();
+    return false;
+  })
+})
+</script>

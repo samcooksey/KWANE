@@ -8,21 +8,20 @@
         Set up your Game Below:
       </div>
       <div>
-        <form>
-          <label>Your Name: <input type="text"/></label></br>
-          <label>Partner's Name: <input type="text"/></label></br>
-          <label>Partner's Phone Number<input type="text"/></label></br>
+        <form ng-submit="HC.startGame(HC.meName, HC.partnerName, HC.partnerNumber)">
+          <label>Your Name: <input type="text" ng-model="HC.meName"/></label></br>
           <div class="disclaimer">
-            (used to send link to game via SMS)
+            (You will be outside of the maze helping your partner)
           </div>
-          Who will be in the maze?<br />
-          <label><input type="radio" name="player" value="me"/> You
-          <div class="disclaimer inline">
-            (only check this if you are both on phones)
+          <label>Partner's Name: <input type="text" ng-model="HC.partnerName"/></label></br>
+          <div class="disclaimer">
+            (Your partner will be navigating the maze from the inside)
           </div>
-          </label>
-          <label><input type="radio" name="player" value="partner" checked/> Partner</label><br />
-          <button type="submit">Start Game</button>
+          <label>Partner's Phone Number<input type="text" ng-model="HC.partnerNumber"/></label></br>
+          <div class="disclaimer">
+            (Used to send your partner a link to the game via SMS)
+          </div>
+          <button type="submit">Start Game!</button>
         </form>
     </div>
   </div>

@@ -1,5 +1,6 @@
 'use strict';
 var app = angular.module('kwaneApp', ['ngRoute']);
+var url = 'http://10.7.80.203:3000';
 
 app.config(function($routeProvider){
   $routeProvider
@@ -8,12 +9,17 @@ app.config(function($routeProvider){
     controller: 'homeController',
     controllerAs: 'HC'
   })
-  .when('/oracle', {
+  .when('/oracle/:id', {
     templateUrl:'/templates/oracleView.html',
     controller: 'oracleController',
     controllerAs: 'OC'
   })
-  .when('/runner', {
+  // .when('/runner', {
+  //   templateUrl:'/templates/runnerView.html',
+  //   controller: 'runnerController',
+  //   controllerAs: 'RC'
+  // })
+  .when('/runner/:id', {
     templateUrl:'/templates/runnerView.html',
     controller: 'runnerController',
     controllerAs: 'RC'
