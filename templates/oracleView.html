@@ -27,7 +27,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-offset-2 col-md-1">
+    <div class="col-md-offset-1 col-md-1">
+      <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerOne, 'one')">
+        <input type="text" ng-model="OC.answerOne"/>
+        <button type="submit" ng-hide="OC.answerCorrectness.one">Submit Code</button>
+      </form>
+      <h2 ng-show="OC.answerCorrectness.one">&check;</h2>
+      <h1 ng-hide="OC.answerCorrectness.one">&#65794;</h1>
+
+    </div>
+    <div class="col-md-1">
       <img src="resources/textures/stone1.jpg" class="sideTexture" />
     </div>
     <div class="col-md-3 middleContainer">
@@ -43,11 +52,26 @@
     <div class="col-md-1">
       <img src="resources/textures/stone4.png" class="sideTexture" />
     </div>
+    <div class="col-md-1">
+      <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerTwo, 'two')">
+        <input type="text" ng-model="OC.answerTwo"/>
+        <button type="submit" ng-hide="OC.answerCorrectness.two">Submit Code</button>
+      </form>
+      <h2 ng-show="OC.answerCorrectness.two">&check;</h2>
+      <h1 ng-hide="OC.answerCorrectness.two">&#65794;</h1>
+    </div>
   </div>
   <div class="row">
-    <div class="col-md-offset-2 col-md-1">
+    <div class="col-md-offset-1 col-md-1">
+      <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerThree, 'three')">
+        <input type="text" ng-model="OC.answerThree"/>
+        <button type="submit" ng-hide="OC.answerCorrectness.three">Submit Code</button>
+      </form>
+      <h2 ng-show="OC.answerCorrectness.three">&check;</h2>
+      <h1 ng-hide="OC.answerCorrectness.three">&#65794;</h1>
+    </div>
+    <div class="col-md-1">
       <img src="resources/textures/stone2.jpg" class="sideTexture" />
-
     </div>
     <div class="col-md-3 middleContainer">
       <div class="holder" id="lower-left">
@@ -61,6 +85,14 @@
     </div>
     <div class="col-md-1">
       <img src="resources/textures/stone3.jpg" class="sideTexture" />
+    </div>
+    <div class="col-md-1">
+      <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerFour, 'four')">
+        <input type="text" ng-model="OC.answerFour"/>
+        <button type="submit" ng-hide="OC.answerCorrectness.four">Submit Code</button>
+      </form>
+      <h2 ng-show="OC.answerCorrectness.four">&check;</h2>
+      <h1 ng-hide="OC.answerCorrectness.four">&#65794;</h1>
     </div>
   </div>
 </div>
@@ -146,23 +178,14 @@
   <div class="col-md-2">
     <h2>Floating tiles?</h2>
     <h3>Guide them through the following instructions:</h3>
-    <img class='tileInstructions' src="resources/images/tile-instructions.png" />
-
+    <img class="tileInstructions" src="resources/images/tile-instructions.png" />
     <h3>Now back to you. What color was the tile from step 4?</h3>
     <h3>If it was Blue then Move up one.</h3>
     <h3>Now figure out what to do next using this diagram. The rings represent the tile from step 4, and the colors in the middle of them represent the tile from step 6</h3>
     <img class="venn" src="resources/images/venn-diagram.png"/>
   </div>
 </div>
-
-
-<h2>Now mark down the code that your finger is on and start over with the next puzzle. Once you've put in all 4 codes click submit!</h2>
 <img src="resources/graph.png" class="graph" />
-<form ng-submit="OC.submitAnswer(OC.answer)">
-  <label><input type="text" ng-model="OC.answer" /></label>
-  <button type="submit">Submit Sequence!</button>
-</form>
-<h1>{{OC.success.response}}</h1>
 <script>
 var src;
 var images = document.querySelectorAll('.smallPart');
