@@ -164,7 +164,7 @@ var masterMaze =
         var walkingSpeed = 1;
         var bobbingRate = 0.05;
         var bobbingHeight = 0.1;
-        var puzzlesSolved = [true, false, true, true];
+        var puzzlesSolved = [false, false, false, false];
 
 
         init();
@@ -300,7 +300,11 @@ var masterMaze =
     pointLight.position.z = 130;
     scene.add(pointLight);
 
-
+    var geometryWall1 = new THREE.Geometry();
+    var geometryWall2 = new THREE.Geometry();
+    var geometryWall3 = new THREE.Geometry();
+    var geometryWall4 = new THREE.Geometry();
+    var geometryRoomWall = new THREE.Geometry();
 
 
     var build = {};
@@ -310,34 +314,52 @@ var masterMaze =
     for (var i = masterMaze.length -1; i >= 0; i--){
     	for(var j = 0; j < masterMaze[i].length; j++){
     		if(masterMaze[i][j] ===1){
-          var material;
           if(j <=49 && i <=49){
-            material = stone1Material;
+            var wall = new THREE.Mesh( wallGeometry, stone1Material);
+            wall.position.x = j * -10;
+            wall.position.z = (98 - i) * 10;
+            geometryWall1.mergeMesh(wall);
           }else if(j <= 49 && i > 49){
-            material = stone2Material;
+            var wall = new THREE.Mesh( wallGeometry, stone2Material );
+            wall.position.x = j * -10;
+      			wall.position.z = (98 - i) * 10;
+            geometryWall2.mergeMesh(wall);
           }else if(j > 49 && i > 49){
-            material = stone3Material;
+            var wall = new THREE.Mesh( wallGeometry, stone3Material );
+            wall.position.x = j * -10;
+      			wall.position.z = (98 - i) * 10;
+            geometryWall3.mergeMesh(wall);
           }else{
-            material = stone4Material;
+            var wall = new THREE.Mesh( wallGeometry, stone4Material );
+            wall.position.x = j * -10;
+      			wall.position.z = (98 - i) * 10;
+            geometryWall4.mergeMesh(wall);
           }
-    			var wall = new THREE.Mesh( wallGeometry, material );
-    			scene.add( wall );
-          mazeParts.push(wall);
-    			wall.position.x = j * -10;
-    			wall.position.z = (98 - i) * 10;
     		}else if(masterMaze[i][j] ===2){
-
           var wall = new THREE.Mesh( tallWallGeometry, roomWallMaterial);
-    			scene.add( wall );
-          mazeParts.push(wall);
     			wall.position.x = j * -10;
     			wall.position.z = (98 - i) * 10;
           wall.position.y = tallWallOffset;
+          geometryRoomWall.mergeMesh(wall);
         }
-
     	}
 
     }
+    var geometryWall1Final = new THREE.Mesh(geometryWall1, stone1Material);
+    var geometryWall2Final = new THREE.Mesh(geometryWall2, stone2Material);
+    var geometryWall3Final = new THREE.Mesh(geometryWall3, stone3Material);
+    var geometryWall4Final = new THREE.Mesh(geometryWall4, stone4Material);
+    var geometryRoomWallFinal = new THREE.Mesh(geometryRoomWall, roomWallMaterial);
+    scene.add(geometryWall1Final);
+    scene.add(geometryWall2Final);
+    scene.add(geometryWall3Final);
+    scene.add(geometryWall4Final);
+    scene.add(geometryRoomWallFinal);
+    mazeParts.push(geometryWall1Final);
+    mazeParts.push(geometryWall2Final);
+    mazeParts.push(geometryWall3Final);
+    mazeParts.push(geometryWall4Final);
+    mazeParts.push(geometryRoomWallFinal);
   }
 
 build.B = function(){
@@ -345,71 +367,107 @@ build.B = function(){
 
   for (var i = masterMaze.length -1; i >= 0; i--){
     for(var j = 0; j < masterMaze[i].length; j++){
-      if(masterMaze[98-i][98-j] ===1){
-        var material;
+      if(masterMaze[i][j] ===1){
         if(j <=49 && i <=49){
-          material = stone1Material;
+          var wall = new THREE.Mesh( wallGeometry, stone1Material);
+          wall.position.x = j * -10;
+          wall.position.z = (98 - i) * 10;
+          geometryWall1.mergeMesh(wall);
         }else if(j <= 49 && i > 49){
-          material = stone2Material;
+          var wall = new THREE.Mesh( wallGeometry, stone2Material );
+          wall.position.x = j * -10;
+          wall.position.z = (98 - i) * 10;
+          geometryWall2.mergeMesh(wall);
         }else if(j > 49 && i > 49){
-          material = stone3Material;
+          var wall = new THREE.Mesh( wallGeometry, stone3Material );
+          wall.position.x = j * -10;
+          wall.position.z = (98 - i) * 10;
+          geometryWall3.mergeMesh(wall);
         }else{
-          material = stone4Material;
+          var wall = new THREE.Mesh( wallGeometry, stone4Material );
+          wall.position.x = j * -10;
+          wall.position.z = (98 - i) * 10;
+          geometryWall4.mergeMesh(wall);
         }
-        var wall = new THREE.Mesh( wallGeometry, material );
-        scene.add( wall );
-        mazeParts.push(wall);
-        wall.position.x = j * -10;
-        wall.position.z = (98 - i) * 10;
       }else if(masterMaze[i][j] ===2){
-
         var wall = new THREE.Mesh( tallWallGeometry, roomWallMaterial);
-        scene.add( wall );
-        mazeParts.push(wall);
         wall.position.x = j * -10;
         wall.position.z = (98 - i) * 10;
         wall.position.y = tallWallOffset;
+        geometryRoomWall.mergeMesh(wall);
       }
-
     }
 
   }
-}
+  var geometryWall1Final = new THREE.Mesh(geometryWall1, stone1Material);
+  var geometryWall2Final = new THREE.Mesh(geometryWall2, stone2Material);
+  var geometryWall3Final = new THREE.Mesh(geometryWall3, stone3Material);
+  var geometryWall4Final = new THREE.Mesh(geometryWall4, stone4Material);
+  var geometryRoomWallFinal = new THREE.Mesh(geometryRoomWall, roomWallMaterial);
+  scene.add(geometryWall1Final);
+  scene.add(geometryWall2Final);
+  scene.add(geometryWall3Final);
+  scene.add(geometryWall4Final);
+  scene.add(geometryRoomWallFinal);
+  mazeParts.push(geometryWall1Final);
+  mazeParts.push(geometryWall2Final);
+  mazeParts.push(geometryWall3Final);
+  mazeParts.push(geometryWall4Final);
+  mazeParts.push(geometryRoomWallFinal);
+  }
 
 build.C = function(){
 
 
 for (var i = masterMaze.length -1; i >= 0; i--){
   for(var j = 0; j < masterMaze[i].length; j++){
-    if(masterMaze[98-i][j] ===1){
-      var material;
+    if(masterMaze[i][j] ===1){
       if(j <=49 && i <=49){
-        material = stone1Material;
+        var wall = new THREE.Mesh( wallGeometry, stone1Material);
+        wall.position.x = j * -10;
+        wall.position.z = (98 - i) * 10;
+        geometryWall1.mergeMesh(wall);
       }else if(j <= 49 && i > 49){
-        material = stone2Material;
+        var wall = new THREE.Mesh( wallGeometry, stone2Material );
+        wall.position.x = j * -10;
+        wall.position.z = (98 - i) * 10;
+        geometryWall2.mergeMesh(wall);
       }else if(j > 49 && i > 49){
-        material = stone3Material;
+        var wall = new THREE.Mesh( wallGeometry, stone3Material );
+        wall.position.x = j * -10;
+        wall.position.z = (98 - i) * 10;
+        geometryWall3.mergeMesh(wall);
       }else{
-        material = stone4Material;
+        var wall = new THREE.Mesh( wallGeometry, stone4Material );
+        wall.position.x = j * -10;
+        wall.position.z = (98 - i) * 10;
+        geometryWall4.mergeMesh(wall);
       }
-      var wall = new THREE.Mesh( wallGeometry, material );
-      scene.add( wall );
-      mazeParts.push(wall);
-      wall.position.x = i * -10;
-      wall.position.z = (98 - j) * 10;
     }else if(masterMaze[i][j] ===2){
-
       var wall = new THREE.Mesh( tallWallGeometry, roomWallMaterial);
-      scene.add( wall );
-      mazeParts.push(wall);
       wall.position.x = j * -10;
       wall.position.z = (98 - i) * 10;
       wall.position.y = tallWallOffset;
+      geometryRoomWall.mergeMesh(wall);
     }
-
   }
 
 }
+var geometryWall1Final = new THREE.Mesh(geometryWall1, stone1Material);
+var geometryWall2Final = new THREE.Mesh(geometryWall2, stone2Material);
+var geometryWall3Final = new THREE.Mesh(geometryWall3, stone3Material);
+var geometryWall4Final = new THREE.Mesh(geometryWall4, stone4Material);
+var geometryRoomWallFinal = new THREE.Mesh(geometryRoomWall, roomWallMaterial);
+scene.add(geometryWall1Final);
+scene.add(geometryWall2Final);
+scene.add(geometryWall3Final);
+scene.add(geometryWall4Final);
+scene.add(geometryRoomWallFinal);
+mazeParts.push(geometryWall1Final);
+mazeParts.push(geometryWall2Final);
+mazeParts.push(geometryWall3Final);
+mazeParts.push(geometryWall4Final);
+mazeParts.push(geometryRoomWallFinal);
 }
 
 build.D = function(){
@@ -417,39 +475,58 @@ build.D = function(){
 
 for (var i = masterMaze.length -1; i >= 0; i--){
   for(var j = 0; j < masterMaze[i].length; j++){
-    if(masterMaze[i][98-j] ===1){
-      var material;
+    if(masterMaze[i][j] ===1){
       if(j <=49 && i <=49){
-        material = stone1Material;
+        var wall = new THREE.Mesh( wallGeometry, stone1Material);
+        wall.position.x = j * -10;
+        wall.position.z = (98 - i) * 10;
+        geometryWall1.mergeMesh(wall);
       }else if(j <= 49 && i > 49){
-        material = stone2Material;
+        var wall = new THREE.Mesh( wallGeometry, stone2Material );
+        wall.position.x = j * -10;
+        wall.position.z = (98 - i) * 10;
+        geometryWall2.mergeMesh(wall);
       }else if(j > 49 && i > 49){
-        material = stone3Material;
+        var wall = new THREE.Mesh( wallGeometry, stone3Material );
+        wall.position.x = j * -10;
+        wall.position.z = (98 - i) * 10;
+        geometryWall3.mergeMesh(wall);
       }else{
-        material = stone4Material;
+        var wall = new THREE.Mesh( wallGeometry, stone4Material );
+        wall.position.x = j * -10;
+        wall.position.z = (98 - i) * 10;
+        geometryWall4.mergeMesh(wall);
       }
-      var wall = new THREE.Mesh( wallGeometry, material );
-      scene.add( wall );
-      mazeParts.push(wall);
-      wall.position.x = i * -10;
-      wall.position.z = (98 - j) * 10;
     }else if(masterMaze[i][j] ===2){
-
       var wall = new THREE.Mesh( tallWallGeometry, roomWallMaterial);
-      scene.add( wall );
-      mazeParts.push(wall);
       wall.position.x = j * -10;
       wall.position.z = (98 - i) * 10;
       wall.position.y = tallWallOffset;
+      geometryRoomWall.mergeMesh(wall);
     }
-
   }
 
 }
+var geometryWall1Final = new THREE.Mesh(geometryWall1, stone1Material);
+var geometryWall2Final = new THREE.Mesh(geometryWall2, stone2Material);
+var geometryWall3Final = new THREE.Mesh(geometryWall3, stone3Material);
+var geometryWall4Final = new THREE.Mesh(geometryWall4, stone4Material);
+var geometryRoomWallFinal = new THREE.Mesh(geometryRoomWall, roomWallMaterial);
+scene.add(geometryWall1Final);
+scene.add(geometryWall2Final);
+scene.add(geometryWall3Final);
+scene.add(geometryWall4Final);
+scene.add(geometryRoomWallFinal);
+mazeParts.push(geometryWall1Final);
+mazeParts.push(geometryWall2Final);
+mazeParts.push(geometryWall3Final);
+mazeParts.push(geometryWall4Final);
+mazeParts.push(geometryRoomWallFinal);
 }
 
 
   build[sv.orientation]();
+
 
 
 
@@ -512,14 +589,24 @@ for (var i = masterMaze.length -1; i >= 0; i--){
       var glyphTexture = loader.load('resources/textures/glyph-' + (payload + multiplier) + '.jpg');
       var glyphMaterial = new THREE.MeshBasicMaterial({map: glyphTexture});
 
+      var spiralGeometry = new THREE.Geometry();
+      var treeTopGeometry = new THREE.Geometry();
+      var treeTrunkGeometry = new THREE.Geometry();
+      var glyphWallGeometry = new THREE.Geometry();
+      var checkerTileGeometryC  = new THREE.Geometry();
+      var checkerTileGeometryR  = new THREE.Geometry();
+      var checkerTileGeometryG  = new THREE.Geometry();
+      var checkerTileGeometryY  = new THREE.Geometry();
+      var checkerTileGeometryL  = new THREE.Geometry();
+      var checkerTileGeometryD  = new THREE.Geometry();
+
       for(var i = 0; i < puzzleArray.length; i++){
         for(var j = 0; j < puzzleArray[i].length; j++){
           if(puzzleArray[i][j] === 1){
             var wall = new THREE.Mesh( wallGeometry, puzzleMaterial );
-            scene.add( wall );
-            mazeParts.push(wall);
             wall.position.x = ((j + startJ) * -10);
             wall.position.z = (98 - (i + startI)) * 10;
+            spiralGeometry.mergeMesh( wall );
           }else if(puzzleArray[i][j] === 2){
             var wall = new THREE.Mesh( wallGeometry, payloadMaterial );
             payloads.push(wall);
@@ -531,42 +618,36 @@ for (var i = masterMaze.length -1; i >= 0; i--){
           } else if(puzzleArray[i][j] === 3){
             for(var k = 0; k < 3; k++){
               var branch = new THREE.Mesh(wallGeometry, branchMaterial);
-              scene.add( branch );
               branch.position.x = ((j + startJ) * -10);
               branch.position.z = (98 - (i + startI)) * 10;
               branch.position.y = (k * 10) + 20;
+              treeTopGeometry.mergeMesh(branch);
             }
 
 
           } else if(puzzleArray[i][j] === 5){
             for(var k = 0; k < 3; k++){
               var branch = new THREE.Mesh(wallGeometry, branchMaterial);
-              scene.add( branch );
               branch.position.x = ((j + startJ) * -10);
               branch.position.z = (98 - (i + startI)) * 10;
               branch.position.y = (k * 10) + 30;
+              treeTopGeometry.mergeMesh(branch);
             }
           } else if(puzzleArray[i][j] === 4){
             for(var k = 0; k < 2; k++){
               var trunk = new THREE.Mesh(wallGeometry, trunkMaterial);
-              scene.add( trunk );
-              if(k === 0){
-                mazeParts.push(trunk);
-              }
               trunk.position.x = ((j + startJ) * -10);
               trunk.position.z = (98 - (i + startI)) * 10;
               trunk.position.y = (k * 10);
+              treeTrunkGeometry.mergeMesh(trunk);
             }
           } else if(puzzleArray[i][j] === 6){
             for(var k = 0; k < 3; k++){
               var trunk = new THREE.Mesh(wallGeometry, trunkMaterial);
-              scene.add( trunk );
-              if(k === 0){
-                mazeParts.push(trunk);
-              }
               trunk.position.x = ((j + startJ) * -10);
               trunk.position.z = (98 - (i + startI)) * 10;
               trunk.position.y = (k * 10);
+              treeTrunkGeometry.mergeMesh(trunk);
             }
           }else if(puzzleArray[i][j] === 7){
             if(orientation){
@@ -577,13 +658,10 @@ for (var i = masterMaze.length -1; i >= 0; i--){
             for(var k = 0; k < 3; k++){
 
               var wall = new THREE.Mesh(glyphGeometry, glyphWallMaterial);
-              scene.add( wall );
-              if(k === 0){
-                mazeParts.push(wall);
-              }
               wall.position.x = ((j + startJ) * -10);
               wall.position.z = (98 - (i + startI)) * 10;
               wall.position.y = (k * 10);
+              glyphWallGeometry.mergeMesh(wall);
             }
 
           }else if(puzzleArray[i][j] === 8){
@@ -607,29 +685,49 @@ for (var i = masterMaze.length -1; i >= 0; i--){
               wall.position.y = (k * 10);
             }
           }else if(typeof puzzleArray[i][j] === 'string'){
-            if(puzzleArray[i][j] === 'B'){
-              var wall = new THREE.Mesh(checkerWall, marbleBlackMaterial);
-            }else if(puzzleArray[i][j] === 'W'){
-              var wall = new THREE.Mesh(checkerWall, marbleWhiteMaterial);
-            }else if(puzzleArray[i][j] === 'C'){
+            if(puzzleArray[i][j] === 'C'){
               var wall = new THREE.Mesh(checkerWall, marbleBlueMaterial);
+              wall.position.x = ((j + startJ) * -10);
+              wall.position.z = (98 - (i + startI)) * 10;
+              wall.position.y = 30;
+              checkerTileGeometryC.mergeMesh(wall);
             }else if(puzzleArray[i][j] === 'R'){
               var wall = new THREE.Mesh(checkerWall, marbleRedMaterial);
+              wall.position.x = ((j + startJ) * -10);
+              wall.position.z = (98 - (i + startI)) * 10;
+              wall.position.y = 30;
+              checkerTileGeometryR.mergeMesh(wall);
             }else if(puzzleArray[i][j] === 'G'){
               var wall = new THREE.Mesh(checkerWall, marbleGreenMaterial);
+              wall.position.x = ((j + startJ) * -10);
+              wall.position.z = (98 - (i + startI)) * 10;
+              wall.position.y = 30;
+              checkerTileGeometryG.mergeMesh(wall);
             }else if(puzzleArray[i][j] === 'Y'){
               var wall = new THREE.Mesh(checkerWall, marbleYellowMaterial);
+              wall.position.x = ((j + startJ) * -10);
+              wall.position.z = (98 - (i + startI)) * 10;
+              wall.position.y = 30;
+              checkerTileGeometryY.mergeMesh(wall);
             }else if(puzzleArray[i][j] === 'L'){
               var wall = new THREE.Mesh(checkerWall, marbleLightGreyMaterial);
+              wall.position.x = ((j + startJ) * -10);
+              wall.position.z = (98 - (i + startI)) * 10;
+              wall.position.y = 30;
+              checkerTileGeometryL.mergeMesh(wall);
             }else if(puzzleArray[i][j] === 'D'){
               var wall = new THREE.Mesh(checkerWall, marbleDarkGreyMaterial);
+              wall.position.x = ((j + startJ) * -10);
+              wall.position.z = (98 - (i + startI)) * 10;
+              wall.position.y = 30;
+              checkerTileGeometryD.mergeMesh(wall);
             }else if(puzzleArray[i][j] === 'P'){
               var wall = new THREE.Mesh(checkerWall, marblePurpleMaterial);
+              wall.position.x = ((j + startJ) * -10);
+              wall.position.z = (98 - (i + startI)) * 10;
+              wall.position.y = 30;
+              scene.add(wall);
             }
-            scene.add(wall);
-            wall.position.x = ((j + startJ) * -10);
-            wall.position.z = (98 - (i + startI)) * 10;
-            wall.position.y = 30;
             checkerBoard = true;
           }
         }
@@ -646,31 +744,45 @@ for (var i = masterMaze.length -1; i >= 0; i--){
       ];
       for(var i = 0; i < middleCheckerArray.length; i++){
         for(var j = 0; j< middleCheckerArray[i].length; j++){
-          if(middleCheckerArray[i][j] !== 0){
-          if(middleCheckerArray[i][j] === 'B'){
-            var wall = new THREE.Mesh(checkerWall, marbleBlackMaterial);
-          }else if(middleCheckerArray[i][j] === 'W'){
-            var wall = new THREE.Mesh(checkerWall, marbleWhiteMaterial);
-          }else if(middleCheckerArray[i][j] === 'C'){
-            var wall = new THREE.Mesh(checkerWall, marbleBlueMaterial);
-          }else if(middleCheckerArray[i][j] === 'R'){
-            var wall = new THREE.Mesh(checkerWall, marbleRedMaterial);
-          }else if(middleCheckerArray[i][j] === 'G'){
-            var wall = new THREE.Mesh(checkerWall, marbleGreenMaterial);
-          }else if(middleCheckerArray[i][j] === 'Y'){
-            var wall = new THREE.Mesh(checkerWall, marbleYellowMaterial);
-          }else if(middleCheckerArray[i][j] === 'L'){
-            var wall = new THREE.Mesh(checkerWall, marbleLightGreyMaterial);
-          }else if(middleCheckerArray[i][j] === 'D'){
-            var wall = new THREE.Mesh(checkerWall, marbleDarkGreyMaterial);
-          }else if(middleCheckerArray[i][j] === 'P'){
-            var wall = new THREE.Mesh(checkerWall, marblePurpleMaterial);
-          }
-          scene.add(wall);
-          wall.position.y = 40;
-          wall.position.x = ((j + startJ + 5) * -10);
-          wall.position.z = (98 - (i + startI + 5)) * 10;
 
+          if(middleCheckerArray[i][j] !== 0){
+            if(middleCheckerArray[i][j] === 'C'){
+              var wall = new THREE.Mesh(checkerWall, marbleBlueMaterial);
+              wall.position.y = 40;
+              wall.position.x = ((j + startJ + 5) * -10);
+              wall.position.z = (98 - (i + startI + 5)) * 10;
+              checkerTileGeometryC.mergeMesh(wall);
+            }else if(middleCheckerArray[i][j] === 'R'){
+              var wall = new THREE.Mesh(checkerWall, marbleRedMaterial);
+              wall.position.y = 40;
+              wall.position.x = ((j + startJ + 5) * -10);
+              wall.position.z = (98 - (i + startI + 5)) * 10;
+              checkerTileGeometryR.mergeMesh(wall);
+            }else if(middleCheckerArray[i][j] === 'G'){
+              var wall = new THREE.Mesh(checkerWall, marbleGreenMaterial);
+              wall.position.y = 40;
+              wall.position.x = ((j + startJ + 5) * -10);
+              wall.position.z = (98 - (i + startI + 5)) * 10;
+              checkerTileGeometryG.mergeMesh(wall);
+            }else if(middleCheckerArray[i][j] === 'Y'){
+              var wall = new THREE.Mesh(checkerWall, marbleYellowMaterial);
+              wall.position.y = 40;
+              wall.position.x = ((j + startJ + 5) * -10);
+              wall.position.z = (98 - (i + startI + 5)) * 10;
+              checkerTileGeometryY.mergeMesh(wall);
+            }else if(middleCheckerArray[i][j] === 'L'){
+              var wall = new THREE.Mesh(checkerWall, marbleLightGreyMaterial);
+              wall.position.y = 40;
+              wall.position.x = ((j + startJ + 5) * -10);
+              wall.position.z = (98 - (i + startI + 5)) * 10;
+              checkerTileGeometryL.mergeMesh(wall);
+            }else if(middleCheckerArray[i][j] === 'D'){
+              var wall = new THREE.Mesh(checkerWall, marbleDarkGreyMaterial);
+              wall.position.y = 40;
+              wall.position.x = ((j + startJ + 5) * -10);
+              wall.position.z = (98 - (i + startI + 5)) * 10;
+              checkerTileGeometryD.mergeMesh(wall);
+            }
 
         }
 
@@ -689,54 +801,106 @@ for (var i = masterMaze.length -1; i >= 0; i--){
 
       for(var i = 0; i < topCheckerArray.length; i++){
         for(var j = 0; j< topCheckerArray[i].length; j++){
+          var tileX;
+          var tileZ;
+          if(payload === 1){
+          tileX = ((j + startJ + 5) * -10);
+          tileZ = (98 - (i + startI + 5)) * 10;
+        }else if(payload === 2){
+          tileX = ((startJ + 11 -j) * -10);
+          tileZ = (98 - (startI + 11-i)) * 10;
+        }else if(payload === 3){
+          tileX = ((startJ + 11 -i) * -10);
+          tileZ = (98 - (startI +j + 5)) * 10;
+        }else if(payload === 4){
+          tileX = ((i + startJ + 5) * -10);
+          tileZ = (98 - (startI + 11 - j)) * 10;
+        }
           if(topCheckerArray[i][j] !== 0){
-          if(topCheckerArray[i][j] === 'B'){
-            var wall = new THREE.Mesh(checkerWall, marbleBlackMaterial);
-          }else if(topCheckerArray[i][j] === 'W'){
-            var wall = new THREE.Mesh(checkerWall, marbleWhiteMaterial);
-          }else if(topCheckerArray[i][j] === 'C'){
+          if(topCheckerArray[i][j] === 'C'){
             var wall = new THREE.Mesh(checkerWall, marbleBlueMaterial);
+            wall.position.x = tileX;
+            wall.position.z = tileZ;
+            wall.position.y = 50;
+            checkerTileGeometryC.mergeMesh(wall);
           }else if(topCheckerArray[i][j] === 'R'){
             var wall = new THREE.Mesh(checkerWall, marbleRedMaterial);
+            wall.position.x = tileX;
+            wall.position.z = tileZ;
+            wall.position.y = 50;
+            checkerTileGeometryR.mergeMesh(wall);
           }else if(topCheckerArray[i][j] === 'G'){
             var wall = new THREE.Mesh(checkerWall, marbleGreenMaterial);
+            wall.position.x = tileX;
+            wall.position.z = tileZ;
+            wall.position.y = 50;
+            checkerTileGeometryG.mergeMesh(wall);
           }else if(topCheckerArray[i][j] === 'Y'){
             var wall = new THREE.Mesh(checkerWall, marbleYellowMaterial);
+            wall.position.x = tileX;
+            wall.position.z = tileZ;
+            wall.position.y = 50;
+            checkerTileGeometryY.mergeMesh(wall);
           }else if(topCheckerArray[i][j] === 'L'){
             var wall = new THREE.Mesh(checkerWall, marbleLightGreyMaterial);
+            wall.position.x = tileX;
+            wall.position.z = tileZ;
+            wall.position.y = 50;
+            checkerTileGeometryL.mergeMesh(wall);
           }else if(topCheckerArray[i][j] === 'D'){
             var wall = new THREE.Mesh(checkerWall, marbleDarkGreyMaterial);
+            wall.position.x = tileX;
+            wall.position.z = tileZ;
+            wall.position.y = 50;
+            checkerTileGeometryD.mergeMesh(wall);
           }else if(topCheckerArray[i][j] === 'P'){
             var wall = new THREE.Mesh(checkerWall, marblePurpleMaterial);
+            wall.position.x = tileX;
+            wall.position.z = tileZ;
+            wall.position.y = 50;
+            scene.add(wall);
           }
-
-          scene.add(wall);
-
-          wall.position.y = 50;
-          if(payload === 1){
-          wall.position.x = ((j + startJ + 5) * -10);
-          wall.position.z = (98 - (i + startI + 5)) * 10;
-        }else if(payload === 2){
-          wall.position.x = ((startJ + 11 -j) * -10);
-          wall.position.z = (98 - (startI + 11-i)) * 10;
-        }else if(payload === 3){
-          wall.position.x = ((startJ + 11 -i) * -10);
-          wall.position.z = (98 - (startI +j + 5)) * 10;
-        }else if(payload === 4){
-          wall.position.x = ((i + startJ + 5) * -10);
-          wall.position.z = (98 - (startI + 11 - j)) * 10;
         }
-        }
-
         }
       }
       checkerBoard = false;
     }
+    var spiralGeometryFinal = new THREE.Mesh(spiralGeometry, puzzleMaterial);
+    var treeTopGeometryFinal = new THREE.Mesh(treeTopGeometry, branchMaterial);
+    var treeTrunkGeometryFinal = new THREE.Mesh(treeTrunkGeometry, trunkMaterial);
+    var glyphWallGeometryFinal = new THREE.Mesh(glyphWallGeometry, glyphWallMaterial);
+
+    var checkerTileGeometryCFinal  = new THREE.Mesh(checkerTileGeometryC, marbleBlueMaterial);
+    var checkerTileGeometryRFinal  = new THREE.Mesh(checkerTileGeometryR, marbleRedMaterial);
+    var checkerTileGeometryGFinal  = new THREE.Mesh(checkerTileGeometryG, marbleGreenMaterial);
+    var checkerTileGeometryYFinal  = new THREE.Mesh(checkerTileGeometryY, marbleYellowMaterial);
+    var checkerTileGeometryLFinal  = new THREE.Mesh(checkerTileGeometryL, marbleLightGreyMaterial);
+    var checkerTileGeometryDFinal  = new THREE.Mesh(checkerTileGeometryD, marbleDarkGreyMaterial);
+
+    scene.add(spiralGeometryFinal);
+    scene.add(treeTopGeometryFinal);
+    scene.add(treeTrunkGeometryFinal);
+    scene.add(glyphWallGeometryFinal);
+
+    scene.add(checkerTileGeometryCFinal);
+    scene.add(checkerTileGeometryRFinal);
+    scene.add(checkerTileGeometryGFinal);
+    scene.add(checkerTileGeometryYFinal);
+    scene.add(checkerTileGeometryLFinal);
+    scene.add(checkerTileGeometryDFinal);
+
+    mazeParts.push(spiralGeometryFinal);
+    mazeParts.push(treeTopGeometryFinal);
+    mazeParts.push(treeTrunkGeometryFinal);
+    mazeParts.push(glyphWallGeometryFinal);
     }
     buildPuzzle(11, 11, sv.puzzle1, puzzleMaterial, sv.puzzle1Payload, sv.puzzle1Orientation);
     buildPuzzle(11, 71, sv.puzzle2, puzzleMaterial, sv.puzzle2Payload, sv.puzzle2Orientation);
     buildPuzzle(71, 11, sv.puzzle3, puzzleMaterial, sv.puzzle3Payload, sv.puzzle3Orientation);
     buildPuzzle(71, 71, sv.puzzle4, puzzleMaterial, sv.puzzle4Payload, sv.puzzle4Orientation);
+
+
+
 
 
 
@@ -756,18 +920,18 @@ for (var i = masterMaze.length -1; i >= 0; i--){
     camera.position.x = camX;
     camera.position.y = camY;
 
-    // camera.position.z = 820;
-    // camera.position.x = -790;
+    // camera.position.z = 80;
+    // camera.position.x = -190;
     // upper left
 
 
 
     // -----------------------------------DEV CAM-------------------------------------------------------------
-    // camera.position.z = 490;
-    // camera.position.x = -490;
-    // camera.position.y = 500;
-    // camera.rotation.x = -90 * degree;
-    // camera.rotation.z = 180 * degree;
+    camera.position.z = 190;
+    camera.position.x = -800;
+    camera.position.y = 500;
+    camera.rotation.x = -90 * degree;
+    camera.rotation.z = 180 * degree;
     // -----------------------------------DEV CAM-------------------------------------------------------------
 
           window.addEventListener('resize', resize, false);
@@ -820,9 +984,9 @@ for (var i = masterMaze.length -1; i >= 0; i--){
                     counter++;
                   }
                 }
-                if(counter === 4 || 1===1){
+                if(counter === 4){
                   var bigBeamGeometry = new THREE.BoxGeometry(30, 1000, 30);
-                  var secretBeamGeometry = new THREE.BoxGeometry(10,1000,10);
+                  var secretBeamGeometry = new THREE.BoxGeometry(10,10,10);
                   var bigBeam = new THREE.Mesh(bigBeamGeometry, beamMaterial);
                   bigBeam.position.x = -490
                   bigBeam.position.z = 490
