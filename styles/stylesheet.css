@@ -3,7 +3,7 @@ html{
 }
 body{
   padding: 10px;
-  min-width: 2100px;
+  /*min-width: 2100px;*/
 }
 .centered{
   text-align: center;
@@ -148,7 +148,7 @@ body{
   width: 350px;
   background-color: white;
   position: fixed;
-  right: 0;
+  right: -350px;
   top: 0;
   z-index: 5;
   border: 1px black solid;
@@ -160,6 +160,7 @@ body{
   width: 50px;
   background-color: white;
   top: 450px;
+  right: 0;
   z-index: 5;
   position: fixed;
   border: 1px solid black;
@@ -171,25 +172,39 @@ body{
   cursor: pointer;
 }
 .sideBarOut{
-  right: 349px;
-
+  right: 0;
+  animation-duration: 1s;
+  animation-name: sideBarSlideOut;
 }
 .sideBarIn{
-  right: 0;
+  right: -350px;
+  animation-duration: 1s;
+  animation-name: sideBarSlideIn;
+}
+.sideBarTabOut{
+right: 349px;
+animation-duration: 1s;
+animation-name: sideBarTabSlideOut;
+}
+.sideBarTabIn{
+right: 0;
+animation-duration: 1s;
+animation-name: sideBarTabSlideIn;
 }
 .chart{
   text-align: center;
   height: 650px;
   width: 1600px;
   position: fixed;
-  top:0;
   left: 10;
+  top: -650px;
   border: 1px solid black;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   z-index: 4;
   background-color: white;
   padding-top: 15px;
+  top: -650px;
 }
 .chartTab{
   position: fixed;
@@ -206,12 +221,28 @@ body{
   border-bottom-right-radius: 5px;
   z-index: 4;
   cursor: pointer;
+  top: 0;
+
 }
 .chartIn{
-  top: 0;
+  top: -650px;
+  animation-duration: 1s;
+  animation-name: chartSlideOut;
 }
 .chartOut{
-  top: 650px;
+  animation-duration: 1s;
+  animation-name: chartSlidein;
+  top: 0;
+}
+.chartTabIn{
+  top:0;
+  animation-duration: 1s;
+  animation-name: chartTabSlideOut;
+}
+.chartTabOut{
+  animation-duration: 1s;
+  animation-name: chartTabSlidein;
+  top: 649px;
 }
 .texture{
   height: 50px;
@@ -257,4 +288,116 @@ body{
   height: 80%;
   margin-top: 20px;
   border: solid black 1px;
+}
+.newGameForm{
+  font-size: 20rem;
+}
+.correctOrNot{
+  display: inline-block;
+  width: 175px;
+  height: 175px;
+  font-size:0;
+
+}
+.submitContainWider{
+  width: 350px;
+  font-size: 0;
+}
+.correct{
+  background-color: green;
+  opacity: .75;
+}
+.incorrect{
+  background-color: red;
+  opacity: .75;
+}
+.instructionsPopIn{
+  animation-duration: 0.5s;
+  animation-name: instructionsPopIn;
+}
+@keyframes chartSlidein {
+  from {
+    top: -650px;
+  }
+
+  to {
+    top: 0;
+  }
+}
+@keyframes chartSlideOut {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: -650px;
+  }
+}
+@keyframes chartTabSlidein {
+  from {
+    top: 0;
+  }
+
+  to {
+    top: 649px;
+  }
+}
+
+@keyframes chartTabSlideOut {
+  from {
+    top: 649px;
+  }
+
+  to {
+    top: 0;
+  }
+}
+
+@keyframes sideBarTabSlideOut {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: 349px;
+  }
+}
+@keyframes sideBarTabSlideIn {
+  from {
+    right: 349px;
+  }
+
+  to {
+    right: 0;
+  }
+}
+@keyframes sideBarSlideOut {
+  from {
+    right: -350px;
+  }
+
+  to {
+    right: 0;
+  }
+}
+@keyframes sideBarSlideIn {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: -350px;
+  }
+}
+
+@keyframes instructionsPopIn {
+  from{
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.wholeThing{
+  padding-top: 300px;
 }

@@ -1,14 +1,15 @@
+<div class="wholeThing">
 <header-directive></header-directive>
-<div class="chartTab" ng-class="{chartIn: OC.chartIn, chartOut: !OC.chartIn}" ng-init="OC.chartIn=true" ng-click="OC.chartIn = !OC.chartIn">
+<div class="chartTab" ng-class="{chartTabIn: OC.chartIn && OC.chartTabClicked, chartTabOut: !OC.chartIn}" ng-init="OC.chartIn=true; OC.chartTabClicked=false;" ng-click="OC.chartIn = !OC.chartIn; OC.chartTabClicked=true;">
       PASSCODE CHART
     </div>
-  <div class="chart" ng-hide="OC.chartIn">
+  <div class="chart"  ng-class="{chartIn: OC.chartIn && OC.chartTabClicked, chartOut: !OC.chartIn}">
     <img class="graph" src="resources/images/graph.png" />
   </div>
-  <div class="sideBarTab" ng-class="{sideBarIn: OC.sideBarIn, sideBarOut: !OC.sideBarIn}" ng-init="OC.sideBarIn=true" ng-click="OC.sideBarIn = !OC.sideBarIn">
+  <div class="sideBarTab" ng-class="{sideBarTabIn: OC.sideBarIn && OC.sideBarTabClicked, sideBarTabOut: !OC.sideBarIn}" ng-init="OC.sideBarIn=true; OC.sideBarTabClicked=false" ng-click="OC.sideBarIn = !OC.sideBarIn; OC.sideBarTabClicked=true;">
     P<br /> U<br /> Z<br /> Z<br /> L<br /> E<br /> S
   </div>
-  <div class="sideBar" ng-hide="OC.sideBarIn">
+  <div class="sideBar" ng-class="{sideBarIn: OC.sideBarIn && OC.sideBarTabClicked, sideBarOut: !OC.sideBarIn}">
     <h3>Open the Passcode Chart from the top left of the screen.</h3>
     <button class="btn btn-lg sidebarbtn" ng-init="OC.step1 = false;" ng-click="OC.step1=!OC.step1; OC.step2=false; OC.step3=false; OC.finalButton=false"> Step 1</button>
     <div ng-show="OC.step1">
@@ -118,7 +119,7 @@ Up 1.
       <h1>Floating Tiles</h1>
       <h3>Give the Operative the following instructions:</h3>
       <button class="btn btn-md" ng-init="OC.instructions=false;" ng-click="OC.instructions=!OC.instructions;">Instructions</button>
-      <div class="instructionsHolder" ng-show="OC.instructions" ng-click="OC.instructions=false;">
+      <div class="instructionsHolder" ng-class="{instructionsPopIn: OC.instructions}" ng-show="OC.instructions" ng-click="OC.instructions=false;">
         <img  src="resources/images/tile-instructions.png" class="instructionsImage"/>
       </div>
 
@@ -155,7 +156,7 @@ Up 1.
 
   </div>
 <div class="container-fluid">
-<div class-"row topRow">
+<div class="row topRow">
 </div>
 <div class="row">
 <div class="col-xs-offset-1 col-xs-2 piecesCol">
@@ -175,8 +176,9 @@ Up 1.
 
 </div>
 <div class="col-xs-6 middleCol">
+  <h1>Welcome Oracle {{OC.player.name}}</h1>
     <h1>Here is your map of the temple</h1>
-    <h2>Click the pieces on the left to rotate them. Drag them to the map below to orient them in the temple.</h1>
+    <h2>Click the pieces on the left to rotate them. Drag them to the map below to orient them in the temple.</h2>
     <div class="textureBack">
       <div class="mazeBack">
         <div class="thisone">
@@ -217,39 +219,48 @@ Up 1.
     <div>
       <h1>Submit passcodes below!</h1>
       <div class="passcodeSubmissionBack">
-        <div>
-          <div class="submissionHolder">
-            <form ng-submit="OC.submitAnswer(OC.answerOne, 'one')">
-              <input type="text" ng-model="OC.answerOne"  class="submitInput"/>
-              <button class="btn btn-md" type="submit">Submit</button>
-            </form>
+        <div class="submitContainWider">
+          <div class="correctOrNot" ng-class="{correct: OC.answerCorrectness.one, incorrect: !OC.answerCorrectness.one && OC.buttonOneClicked}">
+            <div class="submissionHolder">
+              <form ng-submit="OC.submitAnswer(OC.answerOne, 'one')">
+                <input type="text" ng-model="OC.answerOne"  class="submitInput"/>
+                <button ng-disabled="OC.answerCorrectness.one" class="btn btn-md" type="submit"  ng-init="OC.buttonOneClicked=false" ng-click="OC.buttonOneClicked=true">Submit</button>
+              </form>
+            </div>
           </div>
+          <div class="correctOrNot" ng-class="{correct: OC.answerCorrectness.two, incorrect: !OC.answerCorrectness.two && OC.buttonTwoClicked}">
           <div class="submissionHolder">
             <form ng-submit="OC.submitAnswer(OC.answerTwo, 'two')">
               <input type="text" ng-model="OC.answerTwo"  class="submitInput"/>
-              <button class="btn btn-md" type="submit">Submit</button>
+              <button ng-disabled="OC.answerCorrectness.two" class="btn btn-md" type="submit"  ng-init="OC.buttonTwoClicked=false" ng-click="OC.buttonTwoClicked=true">Submit</button>
             </form>
           </div>
         </div>
-        <div>
+        </div>
+        <div class="submitContainWider">
+          <div class="correctOrNot" ng-class="{correct: OC.answerCorrectness.three, incorrect: !OC.answerCorrectness.three && OC.buttonThreeClicked}">
           <div class="submissionHolder">
             <form ng-submit="OC.submitAnswer(OC.answerThree, 'three')">
               <input type="text" ng-model="OC.answerThree"  class="submitInput"/>
-              <button class="btn btn-md" type="submit">Submit</button>
-            </form>
-          </div>
-          <div class="submissionHolder">
-            <form ng-submit="OC.submitAnswer(OC.answerFour, 'four')">
-              <input type="text" ng-model="OC.answerFour"  class="submitInput"/>
-              <button class="btn btn-md" type="submit">Submit</button>
+              <button ng-disabled="OC.answerCorrectness.three" class="btn btn-md" type="submit"  ng-init="OC.buttonThreeClicked=false" ng-click="OC.buttonThreeClicked=true">Submit</button>
             </form>
           </div>
         </div>
+        <div class="correctOrNot" ng-class="{correct: OC.answerCorrectness.four, incorrect: !OC.answerCorrectness.four && OC.buttonFourClicked}">
+          <div class="submissionHolder">
+            <form ng-submit="OC.submitAnswer(OC.answerFour, 'four')">
+              <input type="text" ng-model="OC.answerFour"  class="submitInput"/>
+              <button ng-disabled="OC.answerCorrectness.four" class="btn btn-md" type="submit" ng-init="OC.buttonFourClicked=false" ng-click="OC.buttonFourClicked=true">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
       </div>
     </div>
 
   </div>
+</div>
 </div>
 </div>
 <script>
@@ -300,7 +311,6 @@ holders.forEach(function(holder){
     event.target.style.backgroundColor = '';
   })
   holder.addEventListener('drop', function(event){
-    console.log('drop');
     this.innerHTML = '';
     var data = event.dataTransfer.getData("text");
     var rotation = event.dataTransfer.getData('rotation');
@@ -317,7 +327,6 @@ holders.forEach(function(holder){
   })
   holder.addEventListener('click', function(event){
     event.target.rotation += 90;
-    console.log(event.target.rotation);
     event.target.style.transform = 'rotate(' + event.target.rotation + 'deg)';
   })
 })

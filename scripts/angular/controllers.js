@@ -3,6 +3,7 @@ app.controller('homeController', ['homeService', function(hs){
   var vm = this;
   vm.name = 'Home';
   vm.startGame = hs.startGame;
+  hs.spinServer();
 }])
 
 app.controller('oracleController', ['oracleService', function(os){
@@ -13,6 +14,7 @@ app.controller('oracleController', ['oracleService', function(os){
   vm.submitAnswer = os.submitAnswer;
   vm.success = os.success;
   vm.answerCorrectness = os.answerCorrectness;
+  vm.player = os.player;
   os.getSolutions();
 }]);
 

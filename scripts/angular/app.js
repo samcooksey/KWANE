@@ -1,6 +1,6 @@
 'use strict';
 var app = angular.module('kwaneApp', ['ngRoute']);
-var url = 'http://10.7.80.203:3000';
+var url = 'https://operation-atlantis.herokuapp.com';
 
 app.config(function($routeProvider){
   $routeProvider
@@ -14,11 +14,6 @@ app.config(function($routeProvider){
     controller: 'oracleController',
     controllerAs: 'OC'
   })
-  // .when('/runner', {
-  //   templateUrl:'/templates/runnerView.html',
-  //   controller: 'runnerController',
-  //   controllerAs: 'RC'
-  // })
   .when('/runner/:id', {
     templateUrl:'/templates/runnerView.html',
     controller: 'runnerController',
