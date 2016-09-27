@@ -11,15 +11,15 @@
   </div>
   <div class="sideBar" ng-class="{sideBarIn: OC.sideBarIn && OC.sideBarTabClicked, sideBarOut: !OC.sideBarIn}">
     <h3>Open the Passcode Chart from the top left of the screen.</h3>
-    <button class="btn btn-lg sidebarbtn" ng-init="OC.step1 = false;" ng-click="OC.step1=!OC.step1; OC.step2=false; OC.step3=false; OC.finalButton=false"> Step 1</button>
+    <button class="btn btn-md sidebarbtn" ng-init="OC.step1 = false;" ng-click="OC.step1=!OC.step1; OC.step2=false; OC.step3=false; OC.finalButton=false"> Step 1</button>
     <div ng-show="OC.step1">
     <h2>Which of the four stone types is the Operative currently in?</h3>
-    <h3><img src="resources/textures/stone2.jpg" class="texture" /> Start on 63</h3>
-    <h3><img src="resources/textures/stone1.jpg" class="texture" /> Start on 51</h3>
-    <h3><img src="resources/textures/stone3.jpg" class="texture" /> Start on 59</h3>
-    <h3><img src="resources/textures/stone4.png" class="texture" /> Start on 55</h3>
+    <h3><img src="../resources/textures/stone2.jpg" class="texture" /> Start on 63</h3>
+    <h3><img src="../resources/textures/stone1.jpg" class="texture" /> Start on 51</h3>
+    <h3><img src="../resources/textures/stone3.jpg" class="texture" /> Start on 59</h3>
+    <h3><img src="../resources/textures/stone4.png" class="texture" /> Start on 55</h3>
     </div>
-    <button class="btn btn-lg sidebarbtn" ng-init="OC.step2=false" ng-click="OC.step2=!OC.step2; OC.step1=false; OC.step3=false; OC.finalButton=false"> Step 2</button>
+    <button class="btn btn-md sidebarbtn" ng-init="OC.step2=false" ng-click="OC.step2=!OC.step2; OC.step1=false; OC.step3=false; OC.finalButton=false"> Step 2</button>
     <div ng-show="OC.step2">
       <h2>Now Which Color is the temple piece that you have in that spot?</h2>
       <h3><span style="color: blue">Blue?</span> Move down 4.</h3>
@@ -27,14 +27,14 @@
       <h3><span style="color: orange">Orange?</span> Don't move.</h3>
       <h3><span style="color: pink">Pink?</span> Move up 2.</h3>
     </div>
-    <button class="btn btn-lg" ng-init="OC.step3=false" ng-click="OC.step3=!OC.step3; OC.step2=false; OC.step1=false; OC.finalButton=false">Step 3</button>
+    <button class="btn btn-md" ng-init="OC.step3=false" ng-click="OC.step3=!OC.step3; OC.step2=false; OC.step1=false; OC.finalButton=false">Step 3</button>
     <div ng-show="OC.step3">
 
       <h2> Which type of puzzle does the operative see?</h2>
-      <button class="btn btn-md" ng-init="OC.spiralButton=false;" ng-click="OC.spiralButton=!OC.spiralButton; OC.forestButton=false; OC.glyphButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Spiral</button>
-      <button class="btn btn-md" ng-init="OC.forestButton=false;" ng-click="OC.forestButton=!OC.forestButton; OC.spiralButton=false; OC.glyphButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Forest</button>
-      <button class="btn btn-md" ng-init="OC.glyphButton=false;" ng-click="OC.glyphButton=!OC.glyphButton; OC.forestButton=false; OC.spiralButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Glyph</button>
-      <button class="btn btn-md" ng-init="OC.tilesButton=false;" ng-click="OC.tilesButton=!OC.tilesButton; OC.forestButton=false; OC.spiralButton=false; OC.glyphButton=false; OC.spiralStep4=false;">Floating Tiles</button>
+      <button class="btn btn-sm" ng-init="OC.spiralButton=false;" ng-click="OC.spiralButton=!OC.spiralButton; OC.forestButton=false; OC.glyphButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Spiral</button>
+      <button class="btn btn-sm" ng-init="OC.forestButton=false;" ng-click="OC.forestButton=!OC.forestButton; OC.spiralButton=false; OC.glyphButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Forest</button>
+      <button class="btn btn-sm" ng-init="OC.glyphButton=false;" ng-click="OC.glyphButton=!OC.glyphButton; OC.forestButton=false; OC.spiralButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Glyph</button>
+      <button class="btn btn-sm" ng-init="OC.tilesButton=false;" ng-click="OC.tilesButton=!OC.tilesButton; OC.forestButton=false; OC.spiralButton=false; OC.glyphButton=false; OC.spiralStep4=false;">Tiles</button>
       <div ng-show="OC.spiralButton">
       <h1>Spiral</h1>
       <div ng-hide="OC.spiralStep4">
@@ -42,7 +42,7 @@
       <h3>Clockwise: Don't move.</h3>
       <h3>Counter: Move up 1.</h3>
       </div>
-      <button class="btn btn-md" ng-init="OC.spiralStep4=false;" ng-click="OC.spiralStep4=!OC.spiralStep4">Step 4</button>
+      <button class="btn btn-sm" ng-init="OC.spiralStep4=false;" ng-click="OC.spiralStep4=!OC.spiralStep4">Step 4</button>
       <div ng-show="OC.spiralStep4">
       <h2>What color is the floating cube in the center?</h2>
       <h3><span style="color: blue">Blue?</span> Move left 2.</h3>
@@ -118,14 +118,14 @@ Up 1.
     <div ng-show="OC.tilesButton">
       <h1>Floating Tiles</h1>
       <h3>Give the Operative the following instructions:</h3>
-      <button class="btn btn-md" ng-init="OC.instructions=false;" ng-click="OC.instructions=!OC.instructions;">Instructions</button>
+      <button class="btn btn-sm" ng-init="OC.instructions=false;" ng-click="OC.instructions=!OC.instructions;">Instructions</button>
       <div class="instructionsHolder" ng-class="{instructionsPopIn: OC.instructions}" ng-show="OC.instructions" ng-click="OC.instructions=false;">
         <img  src="resources/images/tile-instructions.png" class="instructionsImage"/>
       </div>
 
       <h2>What color was the tile in step 4?</h2>
-      <button class="btn btn-lg" ng-init="OC.tilesBlue=false" ng-click="OC.tilesBlue=!OC.tilesBlue; OC.tilesRed=false;"><span style="color: blue">Blue?</span></button>
-      <button class="btn btn-lg" ng-init="OC.tilesRed=false" ng-click="OC.tilesRed=!OC.tilesRed; OC.tilesBlue=false;"><span style="color: red">Red?</span></button>
+      <button class="btn btn-md" ng-init="OC.tilesBlue=false" ng-click="OC.tilesBlue=!OC.tilesBlue; OC.tilesRed=false;"><span style="color: blue">Blue?</span></button>
+      <button class="btn btn-md" ng-init="OC.tilesRed=false" ng-click="OC.tilesRed=!OC.tilesRed; OC.tilesBlue=false;"><span style="color: red">Red?</span></button>
       <div ng-show="OC.tilesBlue">
       <h3>Move up 1. What color was the tile in step 6?</h3>
       <h3><span style="color: #EBEB00">Yellow?</span> Move left 3.</h3>
@@ -151,15 +151,13 @@ Up 1.
         <h3>Now Move on to the next challenge!</h3>
         <h3>Once all 4 Information Stones have been activated. The Operative should make their way back to the center room. The Information Stone in the center of the Extraction Beam is their extraction point</h3>
       </div>
-      <button class="btn btn-lg" ng-init="OC.finalButton=false" ng-click="OC.finalButton=!OC.finalButton; OC.step3=false; OC.step2=false; OC.step1=false;">Final Step</button>
+      <button class="btn btn-md" ng-init="OC.finalButton=false" ng-click="OC.finalButton=!OC.finalButton; OC.step3=false; OC.step2=false; OC.step1=false;">Final Step</button>
     </div>
 
   </div>
 <div class="container-fluid">
-<div class="row topRow">
-</div>
-<div class="row">
-<div class="col-xs-offset-1 col-xs-2 piecesCol">
+<div class="ROW">
+<div class="piecesCol">
 <h1>Your temple pieces:</h1>
 <div class="quarterPart">
 <img src="{{OC.squares.one.path}}" class="smallPart {{OC.squares.one.color}}" id="part1"/>
@@ -175,7 +173,7 @@ Up 1.
 </div>
 
 </div>
-<div class="col-xs-6 middleCol">
+<div class="middleCol">
   <h1>Welcome Oracle {{OC.player.name}}</h1>
     <h1>Here is your map of the temple</h1>
     <h2>Click the pieces on the left to rotate them. Drag them to the map below to orient them in the temple.</h2>
@@ -205,7 +203,8 @@ Up 1.
 
     </div>
   </div>
-  <div class="col-xs-2 piecesCol">
+  <div class="piecesCol">
+    <h1>Oracle Information:</h1>
     <button class="btn btn-lg" ng-init="OC.reminder=false;" ng-click="OC.reminder=!OC.reminder">Reminder</button>
     <button class="btn btn-lg" ng-init="OC.advice=false;" ng-click="OC.advice=!OC.advice">Advice</button>
     <div>
@@ -216,7 +215,7 @@ Up 1.
     <h3>Make sure to ask the Operative what type of stone they see. You must line up the temple pieces in the quarter with the matching stone border.</h3>
     <h3>Once They are in the room, open the puzzles tab to the right.</h3>
     </div>
-    <div>
+    <div class="passcodes">
       <h1>Submit passcodes below!</h1>
       <div class="passcodeSubmissionBack">
         <div class="submitContainWider">
@@ -224,7 +223,7 @@ Up 1.
             <div class="submissionHolder">
               <form ng-submit="OC.submitAnswer(OC.answerOne, 'one')">
                 <input type="text" ng-model="OC.answerOne"  class="submitInput"/>
-                <button ng-disabled="OC.answerCorrectness.one" class="btn btn-md" type="submit"  ng-init="OC.buttonOneClicked=false" ng-click="OC.buttonOneClicked=true">Submit</button>
+                <button ng-disabled="OC.answerCorrectness.one" class="btn btn-sm" type="submit"  ng-init="OC.buttonOneClicked=false" ng-click="OC.buttonOneClicked=true">Submit</button>
               </form>
             </div>
           </div>
@@ -232,7 +231,7 @@ Up 1.
           <div class="submissionHolder">
             <form ng-submit="OC.submitAnswer(OC.answerTwo, 'two')">
               <input type="text" ng-model="OC.answerTwo"  class="submitInput"/>
-              <button ng-disabled="OC.answerCorrectness.two" class="btn btn-md" type="submit"  ng-init="OC.buttonTwoClicked=false" ng-click="OC.buttonTwoClicked=true">Submit</button>
+              <button ng-disabled="OC.answerCorrectness.two" class="btn btn-sm" type="submit"  ng-init="OC.buttonTwoClicked=false" ng-click="OC.buttonTwoClicked=true">Submit</button>
             </form>
           </div>
         </div>
@@ -242,7 +241,7 @@ Up 1.
           <div class="submissionHolder">
             <form ng-submit="OC.submitAnswer(OC.answerThree, 'three')">
               <input type="text" ng-model="OC.answerThree"  class="submitInput"/>
-              <button ng-disabled="OC.answerCorrectness.three" class="btn btn-md" type="submit"  ng-init="OC.buttonThreeClicked=false" ng-click="OC.buttonThreeClicked=true">Submit</button>
+              <button ng-disabled="OC.answerCorrectness.three" class="btn btn-sm" type="submit"  ng-init="OC.buttonThreeClicked=false" ng-click="OC.buttonThreeClicked=true">Submit</button>
             </form>
           </div>
         </div>
@@ -250,7 +249,7 @@ Up 1.
           <div class="submissionHolder">
             <form ng-submit="OC.submitAnswer(OC.answerFour, 'four')">
               <input type="text" ng-model="OC.answerFour"  class="submitInput"/>
-              <button ng-disabled="OC.answerCorrectness.four" class="btn btn-md" type="submit" ng-init="OC.buttonFourClicked=false" ng-click="OC.buttonFourClicked=true">Submit</button>
+              <button ng-disabled="OC.answerCorrectness.four" class="btn btn-sm" type="submit" ng-init="OC.buttonFourClicked=false" ng-click="OC.buttonFourClicked=true">Submit</button>
             </form>
           </div>
         </div>
