@@ -14,7 +14,9 @@ body{
   font-size: 25rem;
 }
 .disclaimer{
-  font-size: 10rem;
+  font-size: 8rem;
+  font-weight: normal;
+
 }
 form{
   font-size: 20rem;
@@ -102,4 +104,10 @@ form{
 .submissionForm{
   margin-top: 50rem;
   font-size: 10rem;
+}
+.blueprint{
+  margin-top: 10rem;
+}
+.warning{
+  color: red;
 }

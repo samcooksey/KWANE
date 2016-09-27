@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <div class="row">
   <div class="col-md-offset-3 col-md-6">
-    <h1>Click each piece to rotate it. Drag it to the center to form the maze!</h1>
+    <h1>Click each piece to rotate it. Drag it to the center to form the temple layout!</h1>
   </div>
 </div>
   <div class="row">
@@ -31,6 +31,7 @@
       <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerOne, 'one')">
         <input type="text" ng-model="OC.answerOne"/>
         <button type="submit" ng-hide="OC.answerCorrectness.one">Submit Code</button>
+        <h1>{{OC.puzzles.one.solution}}</h1>
       </form>
       <h2 ng-show="OC.answerCorrectness.one">&check;</h2>
       <h1 ng-hide="OC.answerCorrectness.one">&#65794;</h1>
@@ -56,6 +57,7 @@
       <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerTwo, 'two')">
         <input type="text" ng-model="OC.answerTwo"/>
         <button type="submit" ng-hide="OC.answerCorrectness.two">Submit Code</button>
+        <h1>{{OC.puzzles.two.solution}}</h1>
       </form>
       <h2 ng-show="OC.answerCorrectness.two">&check;</h2>
       <h1 ng-hide="OC.answerCorrectness.two">&#65794;</h1>
@@ -66,6 +68,7 @@
       <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerThree, 'three')">
         <input type="text" ng-model="OC.answerThree"/>
         <button type="submit" ng-hide="OC.answerCorrectness.three">Submit Code</button>
+        <h1>{{OC.puzzles.three.solution}}</h1>
       </form>
       <h2 ng-show="OC.answerCorrectness.three">&check;</h2>
       <h1 ng-hide="OC.answerCorrectness.three">&#65794;</h1>
@@ -90,41 +93,51 @@
       <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerFour, 'four')">
         <input type="text" ng-model="OC.answerFour"/>
         <button type="submit" ng-hide="OC.answerCorrectness.four">Submit Code</button>
+        <h1>{{OC.puzzles.four.solution}}</h1>
       </form>
       <h2 ng-show="OC.answerCorrectness.four">&check;</h2>
       <h1 ng-hide="OC.answerCorrectness.four">&#65794;</h1>
     </div>
   </div>
 </div>
-<h1>Follow these rules to figure out the key for each of the four puzzles:</h1>
-<h3>If the puzzle is in this type of stone <img src="resources/textures/stone1.jpg" class="texture" />
- then start on 51</h3>
-<h3>this type <img src="resources/textures/stone3.jpg" class="texture" />? Start on 59 </h3>
-<h3><img src="resources/textures/stone4.png" class="texture" /> ? Start on 55</h3>
-<h3><img src="resources/textures/stone2.jpg" class="texture" /> ? Start on 63</h3>
-<h2>What color is the quarter of the maze that the puzzle is in?</h2>
-<h3>Blue? move four rows down</h3>
-<h3>Green? That's two two down</h3>
-<h3>Don't move if its Orange</h3>
-<h3>If its Pink then move two rows up</h3>
+<h1>Use the Passcode Chart along with these directions to find the passcodes:</h1>
+<h2>Start here for each new challenge</h2>
+<h2>What Type of stone is this quarter of the temple made out of?</h2>
+<h3><img src="resources/textures/stone1.jpg" class="texture" />
+ ? Start on 51 on the Passcode Chart.</h3>
+<h3><img src="resources/textures/stone3.jpg" class="texture" />? Start on 59 on the Passcode Chart.</h3>
+<h3><img src="resources/textures/stone4.png" class="texture" />? Start on 55 on the Passcode Chart.</h3>
+<h3><img src="resources/textures/stone2.jpg" class="texture" />? Start on 63 on the Passcode Chart.</h3>
+<h2>What color is the Oracle's view of this quarter</h2>
+<h3>Blue? Move four rows down on the Passcode Chart.</h3>
+<h3>Green? Move two rows down on the Passcode Chart.</h3>
+<h3>Orange? Don't move on the Passcode Chart.</h3>
+<h3>Pink? Move two rows up on the Passcode Chart.</h3>
+<h1>Once the Operative is inside of the room, use one of the following guides to figure out the final passcode.</h1>
+<h2>What type of challege is in the room?</h2>
 <div class="row">
   <div class="col-md-offset-1 col-md-2">
-    <h2>Now are they in a spiral?</h2>
+    <h2>SPIRAL</h2>
     <h3>if the Spiral rotates counter-clockwise then move up one row. Otherwise stay where you are.</h3>
     <h2>In the center of the spiral should be a rotating cube. What color is it?</h2>
-    <h3>Neon-Green? move left 3. Neon Blue? Left 2. Rainbow color? Move left 1. Otherwise stay put.</h3>
+    <h3>Neon-Green? Move left 3.</h3>
+    <h3>Neon Blue? Move left 2.</h3>
+    <h3>Rainbow color? Move left 1.</h3>
+    <h3>Otherwise stay put.</h3>
+    <h1>Now enter your passcode</h1>
   </div>
   <div class="col-md-2">
-    <h2>In a forest?</h2>
+    <h2>FOREST</h2>
     <h2>What kind of leaves are on the trees?</h2>
-    <h3>Pine? right 4</h3>
-    <h3>autumnal? left 4</h3>
-    <h3>snowy leaves? down 8</h3>
-    <h3>Otherwise stay put</h3>
+    <h3>Pine? Move left three.</h3>
+    <h3>Autumnal? Move left two.</h3>
+    <h3>Snowy leaves? Move left one.</h3>
+    <h3>Otherwise stay put.</h3>
     <h2>If there are seven trees then go up 1</h2>
+    <h1>Now enter your passcode</h1>
   </div>
   <div class="col-md-2">
-    <h2>Is there a glyph in the center of the room?</h2>
+    <h2>GLYPH</h2>
     <h3>figure out which three symbols are on it and move accordingly</h3>
     <h4>
     <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
@@ -174,15 +187,15 @@
   <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
   up one
   </h4>
+  <h1>Now enter your passcode</h1>
   </div>
   <div class="col-md-2">
-    <h2>Floating tiles?</h2>
+    <h2>FLOATING TILES</h2>
     <h3>Guide them through the following instructions:</h3>
     <img class="tileInstructions" src="resources/images/tile-instructions.png" />
-    <h3>Now back to you. What color was the tile from step 4?</h3>
-    <h3>If it was Blue then Move up one.</h3>
-    <h3>Now figure out what to do next using this diagram. The rings represent the tile from step 4, and the colors in the middle of them represent the tile from step 6</h3>
-    <img class="venn" src="resources/images/venn-diagram.png"/>
+    <h3>Now back to you. Use the following Chart to figure out what to do next</h3>
+    <img class="venn" src="resources/images/tile-chart.png"/>
+    <h1>Now enter your passcode</h1>
   </div>
 </div>
 <img src="resources/graph.png" class="graph" />

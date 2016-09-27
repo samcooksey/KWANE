@@ -13,6 +13,7 @@ app.controller('oracleController', ['oracleService', function(os){
   vm.submitAnswer = os.submitAnswer;
   vm.success = os.success;
   vm.answerCorrectness = os.answerCorrectness;
+  os.getSolutions();
 }]);
 
 app.controller('runnerController', ['runnerService', function(rs){
