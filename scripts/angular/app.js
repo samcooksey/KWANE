@@ -19,5 +19,8 @@ app.config(function($routeProvider){
     controller: 'runnerController',
     controllerAs: 'RC'
   })
+  .when('/about', {
+    templateUrl: './templates/about.html'
+  })
   .otherwise({redirectTo:'/'});
 });
