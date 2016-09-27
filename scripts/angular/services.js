@@ -223,7 +223,7 @@ app.service('runnerService', ['$http','$location', function($http, $location){
       floor.repeat.set(100, 100);
       var floorMaterial = new THREE.MeshBasicMaterial( { map: floor} );
 
-      var stone1 = loader.load('resources/textures/stone1.jpg');
+      var stone1 = loader.load('../../resources/textures/stone1.jpg');
       var stone1Material = new THREE.MeshBasicMaterial({map: stone1});
 
       var stone2 = loader.load('resources/textures/stone2.jpg');
