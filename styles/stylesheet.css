@@ -22,6 +22,9 @@ body{
 .inline{
   display:inline-block
 }
+.blueprint{
+  width: 100%;
+}
 #maze{
         position: absolute;
         top: 0;
@@ -94,7 +97,7 @@ body{
   height: 1000px;
   width: 1000px;
   background-size: 100%;
-  background-image: url("/resources/images/4textures.png");
+  background-image: url("./resources/images/4textures.png");
   padding: 50px;
 }
 .mazeBack{
@@ -102,7 +105,7 @@ body{
   width: 900px;
   /*opacity: .75;*/
   background-size: 100%;
-  background-image: url("/resources/images/maze-blueprint.png");
+  background-image: url("./resources/images/maze-blueprint.png");
 }
 .holder{
   height: 446px;
@@ -262,7 +265,7 @@ animation-name: sideBarTabSlideIn;
   height: 350px;
   width: 350px;;
   background-size: 100%;
-  background-image: url("/resources/images/4textures.png");
+  background-image: url("./resources/images/4textures.png");
 }
 .submissionHolder{
   width: 170px;
