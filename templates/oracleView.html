@@ -1,204 +1,257 @@
+<header-directive></header-directive>
+<div class="chartTab" ng-class="{chartIn: OC.chartIn, chartOut: !OC.chartIn}" ng-init="OC.chartIn=true" ng-click="OC.chartIn = !OC.chartIn">
+      PASSCODE CHART
+    </div>
+  <div class="chart" ng-hide="OC.chartIn">
+    <img class="graph" src="resources/images/graph.png" />
+  </div>
+  <div class="sideBarTab" ng-class="{sideBarIn: OC.sideBarIn, sideBarOut: !OC.sideBarIn}" ng-init="OC.sideBarIn=true" ng-click="OC.sideBarIn = !OC.sideBarIn">
+    P<br /> U<br /> Z<br /> Z<br /> L<br /> E<br /> S
+  </div>
+  <div class="sideBar" ng-hide="OC.sideBarIn">
+    <h3>Open the Passcode Chart from the top left of the screen.</h3>
+    <button class="btn btn-lg sidebarbtn" ng-init="OC.step1 = false;" ng-click="OC.step1=!OC.step1; OC.step2=false; OC.step3=false; OC.finalButton=false"> Step 1</button>
+    <div ng-show="OC.step1">
+    <h2>Which of the four stone types is the Operative currently in?</h3>
+    <h3><img src="resources/textures/stone2.jpg" class="texture" /> Start on 63</h3>
+    <h3><img src="resources/textures/stone1.jpg" class="texture" /> Start on 51</h3>
+    <h3><img src="resources/textures/stone3.jpg" class="texture" /> Start on 59</h3>
+    <h3><img src="resources/textures/stone4.png" class="texture" /> Start on 55</h3>
+    </div>
+    <button class="btn btn-lg sidebarbtn" ng-init="OC.step2=false" ng-click="OC.step2=!OC.step2; OC.step1=false; OC.step3=false; OC.finalButton=false"> Step 2</button>
+    <div ng-show="OC.step2">
+      <h2>Now Which Color is the temple piece that you have in that spot?</h2>
+      <h3><span style="color: blue">Blue?</span> Move down 4.</h3>
+      <h3><span style="color: green">Green?</span> Move down 2.</h3>
+      <h3><span style="color: orange">Orange?</span> Don't move.</h3>
+      <h3><span style="color: pink">Pink?</span> Move up 2.</h3>
+    </div>
+    <button class="btn btn-lg" ng-init="OC.step3=false" ng-click="OC.step3=!OC.step3; OC.step2=false; OC.step1=false; OC.finalButton=false">Step 3</button>
+    <div ng-show="OC.step3">
+
+      <h2> Which type of puzzle does the operative see?</h2>
+      <button class="btn btn-md" ng-init="OC.spiralButton=false;" ng-click="OC.spiralButton=!OC.spiralButton; OC.forestButton=false; OC.glyphButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Spiral</button>
+      <button class="btn btn-md" ng-init="OC.forestButton=false;" ng-click="OC.forestButton=!OC.forestButton; OC.spiralButton=false; OC.glyphButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Forest</button>
+      <button class="btn btn-md" ng-init="OC.glyphButton=false;" ng-click="OC.glyphButton=!OC.glyphButton; OC.forestButton=false; OC.spiralButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Glyph</button>
+      <button class="btn btn-md" ng-init="OC.tilesButton=false;" ng-click="OC.tilesButton=!OC.tilesButton; OC.forestButton=false; OC.spiralButton=false; OC.glyphButton=false; OC.spiralStep4=false;">Floating Tiles</button>
+      <div ng-show="OC.spiralButton">
+      <h1>Spiral</h1>
+      <div ng-hide="OC.spiralStep4">
+      <h2>What direction does the spiral curl?</h2>
+      <h3>Clockwise: Don't move.</h3>
+      <h3>Counter: Move up 1.</h3>
+      </div>
+      <button class="btn btn-md" ng-init="OC.spiralStep4=false;" ng-click="OC.spiralStep4=!OC.spiralStep4">Step 4</button>
+      <div ng-show="OC.spiralStep4">
+      <h2>What color is the floating cube in the center?</h2>
+      <h3><span style="color: blue">Blue?</span> Move left 2.</h3>
+      <h3><span style="color: green">green?</span> Move left 3.</h3>
+      <h3><span style="color: red">R</span><span style="color: orange ">a</span><span style="color: yellow ">i</span><span style="color: green ">n</span><span style="color: blue ">b</span><span style="color: purple">o</span><span style="color: red">w</span><span style="color: blue">?</span> Move left 1.</h3>
+      <h3>Otherwise: Don't move.</h3>
+      <h1>Move on to the Final Step</h1>
+      </div>
+    </div>
+    <div ng-show="OC.forestButton">
+      <h1>Forest</h1>
+      <h2>What type of leaves are on the trees?</h2>
+      <h3>Pine? Move left 3.</h3>
+      <h3>Fall? Move left 2.</h3>
+      <h3>Snowy? Move left 1.</h3>
+      <h3>Otherwise stay put.</h3>
+      <h3>If there are seven trees then move up 1.</h3>
+      <h1>Move on to the Final Step</h1>
+    </div>
+    <div ng-show="OC.glyphButton">
+      <h1>Glyph</h1>
+      <h2>Match the symbols on the Glyph to the key below:</h2>
+      <h4>
+  <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
+  <img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
+  Left 3.
+</h4>
+<h4>
+<img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
+Left 2.
+</h4>
+<h4>
+<img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol4-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
+left 1.
+</h4>
+<h4>
+<img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
+Don't move.
+</h4>
+<h4>
+<img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
+Up 1, left 3.
+</h4>
+<h4>
+<img class="glyph" src="resources/glyph-symbols/symbol4-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
+Up 1, left 2.
+</h4>
+<h4>
+<img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
+Up 1, left 1.
+</h4>
+<h4>
+<img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
+<img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
+Up 1.
+</h4>
+<h1>Move on to the Final Step</h1>
+    </div>
+    <div ng-show="OC.tilesButton">
+      <h1>Floating Tiles</h1>
+      <h3>Give the Operative the following instructions:</h3>
+      <button class="btn btn-md" ng-init="OC.instructions=false;" ng-click="OC.instructions=!OC.instructions;">Instructions</button>
+      <div class="instructionsHolder" ng-show="OC.instructions" ng-click="OC.instructions=false;">
+        <img  src="resources/images/tile-instructions.png" class="instructionsImage"/>
+      </div>
+
+      <h2>What color was the tile in step 4?</h2>
+      <button class="btn btn-lg" ng-init="OC.tilesBlue=false" ng-click="OC.tilesBlue=!OC.tilesBlue; OC.tilesRed=false;"><span style="color: blue">Blue?</span></button>
+      <button class="btn btn-lg" ng-init="OC.tilesRed=false" ng-click="OC.tilesRed=!OC.tilesRed; OC.tilesBlue=false;"><span style="color: red">Red?</span></button>
+      <div ng-show="OC.tilesBlue">
+      <h3>Move up 1. What color was the tile in step 6?</h3>
+      <h3><span style="color: #EBEB00">Yellow?</span> Move left 3.</h3>
+      <h3><span style="color: blue">Blue?</span> Move left 2.</h3>
+      <h3><span style="color: red">Red?</span> Move left 1.</h3>
+      <h3><span style="color: green">Green?</span> Don't Move.</h3>
+      <h1>Move on to the Final Step</h1>
+      </div>
+      <div ng-show="OC.tilesRed">
+        <h3>What color was the tile in step 6?</h3>
+        <h3><span style="color: #EBEB00">Yellow?</span> Move left 1.</h3>
+        <h3><span style="color: blue">Blue?</span> Move left 2.</h3>
+        <h3><span style="color: red">Red?</span> Don't Move.</h3>
+        <h3><span style="color: green">Green?</span> Move left 3.</h3>
+        <h1>Move on to the Final Step</h1>
+      </div>
+    </div>
+    </div>
+    <div class="finalButton">
+      <div ng-show="OC.finalButton">
+        <h3>Input the passcode that you've landed on into the corresponding input box.</h3>
+        <h3>After it has been accepted, instruct the Operative to make contact with the Information Stone in the center of the room.</h3>
+        <h3>Now Move on to the next challenge!</h3>
+        <h3>Once all 4 Information Stones have been activated. The Operative should make their way back to the center room. The Information Stone in the center of the Extraction Beam is their extraction point</h3>
+      </div>
+      <button class="btn btn-lg" ng-init="OC.finalButton=false" ng-click="OC.finalButton=!OC.finalButton; OC.step3=false; OC.step2=false; OC.step1=false;">Final Step</button>
+    </div>
+
+  </div>
 <div class="container-fluid">
+<div class-"row topRow">
+</div>
 <div class="row">
-  <div class="col-md-offset-3 col-md-6">
-    <h1>Click each piece to rotate it. Drag it to the center to form the temple layout!</h1>
+<div class="col-xs-offset-1 col-xs-2 piecesCol">
+<h1>Your temple pieces:</h1>
+<div class="quarterPart">
+<img src="{{OC.squares.one.path}}" class="smallPart {{OC.squares.one.color}}" id="part1"/>
+</div>
+<div class="quarterPart">
+<img src="{{OC.squares.two.path}}" class="smallPart {{OC.squares.two.color}}" id="part2" />
+</div>
+<div class="quarterPart">
+<img src="{{OC.squares.three.path}}" class="smallPart {{OC.squares.three.color}}" id="part3" />
+</div>
+<div class="quarterPart">
+<img src="{{OC.squares.four.path}}" class="smallPart {{OC.squares.four.color}}" id="part4" />
+</div>
+
+</div>
+<div class="col-xs-6 middleCol">
+    <h1>Here is your map of the temple</h1>
+    <h2>Click the pieces on the left to rotate them. Drag them to the map below to orient them in the temple.</h1>
+    <div class="textureBack">
+      <div class="mazeBack">
+        <div class="thisone">
+          <div class="holder" id="holder1">
+
+
+          </div>
+          <div class="holder" id="holder2">
+
+
+          </div>
+        </div>
+        <div>
+          <div class="holder" id="holder3">
+
+
+          </div>
+          <div class="holder" id="holder4">
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-xs-2 piecesCol">
+    <button class="btn btn-lg" ng-init="OC.reminder=false;" ng-click="OC.reminder=!OC.reminder">Reminder</button>
+    <button class="btn btn-lg" ng-init="OC.advice=false;" ng-click="OC.advice=!OC.advice">Advice</button>
+    <div>
+    <h3 ng-show="OC.reminder">Your goal is to figure out which of the 4 quarters the Operative is in. Once you know that, you should guide them to the large room towards the outer corner of that quarter.</h3>
+    <h3 ng-show="OC.advice">Use what you know! The Operative starts in the center of the temple. Ask them walk around the outside of the center room and describe the different passages they see. Then compare them to the corners of the center room that are on your temple pieces.</h3>
+    <button class="btn btn-lg hideable">More Advice?</button>
+    <h3 class="hideable">If you know which type of stone the Operative is looking at then you know the orientation of the piece you are looking for. Click all the remainging pieces to face them in the right direction.</h3>
+    <h3>Make sure to ask the Operative what type of stone they see. You must line up the temple pieces in the quarter with the matching stone border.</h3>
+    <h3>Once They are in the room, open the puzzles tab to the right.</h3>
+    </div>
+    <div>
+      <h1>Submit passcodes below!</h1>
+      <div class="passcodeSubmissionBack">
+        <div>
+          <div class="submissionHolder">
+            <form ng-submit="OC.submitAnswer(OC.answerOne, 'one')">
+              <input type="text" ng-model="OC.answerOne"  class="submitInput"/>
+              <button class="btn btn-md" type="submit">Submit</button>
+            </form>
+          </div>
+          <div class="submissionHolder">
+            <form ng-submit="OC.submitAnswer(OC.answerTwo, 'two')">
+              <input type="text" ng-model="OC.answerTwo"  class="submitInput"/>
+              <button class="btn btn-md" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+        <div>
+          <div class="submissionHolder">
+            <form ng-submit="OC.submitAnswer(OC.answerThree, 'three')">
+              <input type="text" ng-model="OC.answerThree"  class="submitInput"/>
+              <button class="btn btn-md" type="submit">Submit</button>
+            </form>
+          </div>
+          <div class="submissionHolder">
+            <form ng-submit="OC.submitAnswer(OC.answerFour, 'four')">
+              <input type="text" ng-model="OC.answerFour"  class="submitInput"/>
+              <button class="btn btn-md" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </div>
-  <div class="row">
-    <div class="col-md-offset-2 col-md-2">
-      <div class="imageTile">
-        <img src="{{OC.squares.one.path}}" class="smallPart {{OC.squares.one.color}}" id="part1" draggable/>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="imageTile">
-        <img src="{{OC.squares.two.path}}" class="smallPart {{OC.squares.two.color}}" id="part2" />
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="imageTile">
-        <img src="{{OC.squares.three.path}}" class="smallPart {{OC.squares.three.color}}" id="part3" />
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div class="imageTile">
-        <img src="{{OC.squares.four.path}}" class="smallPart {{OC.squares.four.color}}" id="part4" />
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-offset-1 col-md-1">
-      <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerOne, 'one')">
-        <input type="text" ng-model="OC.answerOne"/>
-        <button type="submit" ng-hide="OC.answerCorrectness.one">Submit Code</button>
-        <h1>{{OC.puzzles.one.solution}}</h1>
-      </form>
-      <h2 ng-show="OC.answerCorrectness.one">&check;</h2>
-      <h1 ng-hide="OC.answerCorrectness.one">&#65794;</h1>
-
-    </div>
-    <div class="col-md-1">
-      <img src="resources/textures/stone1.jpg" class="sideTexture" />
-    </div>
-    <div class="col-md-3 middleContainer">
-      <div class="holder" id="upper-left">
-
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="holder" id="upper-right">
-
-      </div>
-    </div>
-    <div class="col-md-1">
-      <img src="resources/textures/stone4.png" class="sideTexture" />
-    </div>
-    <div class="col-md-1">
-      <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerTwo, 'two')">
-        <input type="text" ng-model="OC.answerTwo"/>
-        <button type="submit" ng-hide="OC.answerCorrectness.two">Submit Code</button>
-        <h1>{{OC.puzzles.two.solution}}</h1>
-      </form>
-      <h2 ng-show="OC.answerCorrectness.two">&check;</h2>
-      <h1 ng-hide="OC.answerCorrectness.two">&#65794;</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-offset-1 col-md-1">
-      <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerThree, 'three')">
-        <input type="text" ng-model="OC.answerThree"/>
-        <button type="submit" ng-hide="OC.answerCorrectness.three">Submit Code</button>
-        <h1>{{OC.puzzles.three.solution}}</h1>
-      </form>
-      <h2 ng-show="OC.answerCorrectness.three">&check;</h2>
-      <h1 ng-hide="OC.answerCorrectness.three">&#65794;</h1>
-    </div>
-    <div class="col-md-1">
-      <img src="resources/textures/stone2.jpg" class="sideTexture" />
-    </div>
-    <div class="col-md-3 middleContainer">
-      <div class="holder" id="lower-left">
-
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="holder" id="lower-right">
-
-      </div>
-    </div>
-    <div class="col-md-1">
-      <img src="resources/textures/stone3.jpg" class="sideTexture" />
-    </div>
-    <div class="col-md-1">
-      <form class="submissionForm" ng-submit="OC.submitAnswer(OC.answerFour, 'four')">
-        <input type="text" ng-model="OC.answerFour"/>
-        <button type="submit" ng-hide="OC.answerCorrectness.four">Submit Code</button>
-        <h1>{{OC.puzzles.four.solution}}</h1>
-      </form>
-      <h2 ng-show="OC.answerCorrectness.four">&check;</h2>
-      <h1 ng-hide="OC.answerCorrectness.four">&#65794;</h1>
-    </div>
-  </div>
 </div>
-<h1>Use the Passcode Chart along with these directions to find the passcodes:</h1>
-<h2>Start here for each new challenge</h2>
-<h2>What Type of stone is this quarter of the temple made out of?</h2>
-<h3><img src="resources/textures/stone1.jpg" class="texture" />
- ? Start on 51 on the Passcode Chart.</h3>
-<h3><img src="resources/textures/stone3.jpg" class="texture" />? Start on 59 on the Passcode Chart.</h3>
-<h3><img src="resources/textures/stone4.png" class="texture" />? Start on 55 on the Passcode Chart.</h3>
-<h3><img src="resources/textures/stone2.jpg" class="texture" />? Start on 63 on the Passcode Chart.</h3>
-<h2>What color is the Oracle's view of this quarter</h2>
-<h3>Blue? Move four rows down on the Passcode Chart.</h3>
-<h3>Green? Move two rows down on the Passcode Chart.</h3>
-<h3>Orange? Don't move on the Passcode Chart.</h3>
-<h3>Pink? Move two rows up on the Passcode Chart.</h3>
-<h1>Once the Operative is inside of the room, use one of the following guides to figure out the final passcode.</h1>
-<h2>What type of challege is in the room?</h2>
-<div class="row">
-  <div class="col-md-offset-1 col-md-2">
-    <h2>SPIRAL</h2>
-    <h3>if the Spiral rotates counter-clockwise then move up one row. Otherwise stay where you are.</h3>
-    <h2>In the center of the spiral should be a rotating cube. What color is it?</h2>
-    <h3>Neon-Green? Move left 3.</h3>
-    <h3>Neon Blue? Move left 2.</h3>
-    <h3>Rainbow color? Move left 1.</h3>
-    <h3>Otherwise stay put.</h3>
-    <h1>Now enter your passcode</h1>
-  </div>
-  <div class="col-md-2">
-    <h2>FOREST</h2>
-    <h2>What kind of leaves are on the trees?</h2>
-    <h3>Pine? Move left three.</h3>
-    <h3>Autumnal? Move left two.</h3>
-    <h3>Snowy leaves? Move left one.</h3>
-    <h3>Otherwise stay put.</h3>
-    <h2>If there are seven trees then go up 1</h2>
-    <h1>Now enter your passcode</h1>
-  </div>
-  <div class="col-md-2">
-    <h2>GLYPH</h2>
-    <h3>figure out which three symbols are on it and move accordingly</h3>
-    <h4>
-    <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
-    <img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
-    <img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
-    left three
-  </h4>
-  <h4>
-  <img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
-  left two
-  </h4>
-  <h4>
-  <img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol4-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
-  left one
-  </h4>
-  <h4>
-  <img class="glyph" src="resources/glyph-symbols/symbol5-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
-  stay put
-  </h4>
-  <h4>
-  <img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
-  up one, left three
-  </h4>
-  <h4>
-  <img class="glyph" src="resources/glyph-symbols/symbol4-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol8-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
-  up one, left two
-  </h4>
-  <h4>
-  <img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol6-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol2-solid.png" />
-  up one, left one
-  </h4>
-  <h4>
-  <img class="glyph" src="resources/glyph-symbols/symbol7-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol3-solid.png" />
-  <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
-  up one
-  </h4>
-  <h1>Now enter your passcode</h1>
-  </div>
-  <div class="col-md-2">
-    <h2>FLOATING TILES</h2>
-    <h3>Guide them through the following instructions:</h3>
-    <img class="tileInstructions" src="resources/images/tile-instructions.png" />
-    <h3>Now back to you. Use the following Chart to figure out what to do next</h3>
-    <img class="venn" src="resources/images/tile-chart.png"/>
-    <h1>Now enter your passcode</h1>
-  </div>
-</div>
-<img src="resources/graph.png" class="graph" />
 <script>
 var src;
 var images = document.querySelectorAll('.smallPart');
@@ -235,7 +288,7 @@ holders.forEach(function(holder){
   holder.addEventListener('dragenter', function(event){
 
     event.preventDefault();
-    event.target.style.backgroundColor = 'white';
+    event.target.style.backgroundColor = '';
     return true;
 
   })
@@ -244,7 +297,7 @@ holders.forEach(function(holder){
 
   })
   holder.addEventListener('dragleave', function(event){
-    event.target.style.backgroundColor = 'lightgrey';
+    event.target.style.backgroundColor = '';
   })
   holder.addEventListener('drop', function(event){
     console.log('drop');
@@ -254,12 +307,18 @@ holders.forEach(function(holder){
     var image = document.createElement('img');
     var color = event.dataTransfer.getData('color');
     image.src = data;
-    image.classList.add('centerImage');
+    image.classList.add('mazeQuarter');
+    image.rotation = Number(rotation);
     image.style.transform = 'rotate(' + rotation + 'deg)';
     image.classList.add(color);
     this.appendChild(image);
     event.stopPropagation();
     return false;
+  })
+  holder.addEventListener('click', function(event){
+    event.target.rotation += 90;
+    console.log(event.target.rotation);
+    event.target.style.transform = 'rotate(' + event.target.rotation + 'deg)';
   })
 })
 </script>

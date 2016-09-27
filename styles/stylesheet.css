@@ -3,6 +3,7 @@ html{
 }
 body{
   padding: 10px;
+  min-width: 2100px;
 }
 .centered{
   text-align: center;
@@ -17,9 +18,6 @@ body{
   font-size: 8rem;
   font-weight: normal;
 
-}
-form{
-  font-size: 20rem;
 }
 .inline{
   display:inline-block
@@ -44,9 +42,6 @@ form{
   height: 150rem;
 }*/
 
-.imageTile{
-
-}
 .smallPart{
   height: 150rem;
   margin-top: 10rem;
@@ -73,41 +68,193 @@ form{
   filter: hue-rotate(130deg);
 }
 
-.holder{
-  border: 1px solid black;
-  height: 225rem;
-  margin-top: 10rem;
-  background-color: lightgrey;
-}
 .holder.over{
-  background-color: white;
-}
-.centerImage{
-  height: 224rem;
-}
-.middleContainer{
 }
 
-.graph{
-  height: 200rem;
-}
 
-.glyph{
-  height: 20rem;
-}
-.tileInstructions{
-  height: 200rem;
-}
-.venn{
-  height: 200rem;
-}
-.submissionForm{
-  margin-top: 50rem;
-  font-size: 10rem;
-}
-.blueprint{
-  margin-top: 10rem;
-}
 .warning{
   color: red;
+}
+
+/*body{
+  /*background-image: url("underwater.jpg");
+  background-size: 100%;*/
+  /*padding-top: 500px;
+}*/
+
+.graph{
+  width: 1500px;
+  border: 1px solid black;
+}
+.graphHolder{
+  text-align: center;
+}
+.textureBack{
+  margin: auto;
+  height: 1000px;
+  width: 1000px;
+  background-size: 100%;
+  background-image: url("/resources/images/4textures.png");
+  padding: 50px;
+}
+.mazeBack{
+  height: 900px;
+  width: 900px;
+  /*opacity: .75;*/
+  background-size: 100%;
+  background-image: url("/resources/images/maze-blueprint.png");
+}
+.holder{
+  height: 446px;
+  width: 446px;
+  /*background-color: pink;*/
+  display: inline-block;
+}
+#holder1{
+  margin-right: 3px;
+}
+#holder3{
+  margin-right: 3px;
+  padding-top: 12px;
+}
+.mazeQuarter{
+  height: 440px;
+  width: 440px;
+  vertical-align: bottom;
+  /*opacity: .75;*/
+}
+.middleCol{
+  text-align: center;
+}
+.quarterPart{
+  height: 200px;
+  width: 200px;
+  margin: 25px;
+}
+.smallPart{
+  height: 200px;
+  vertical-align: bottom;
+}
+.piecesCol{
+  margin-top: 200px;
+}
+.hideable{
+  display: none;
+}
+.sideBar{
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 1000px;
+  width: 350px;
+  background-color: white;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5;
+  border: 1px black solid;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.sideBarTab{
+  height: 200px;
+  width: 50px;
+  background-color: white;
+  top: 450px;
+  z-index: 5;
+  position: fixed;
+  border: 1px solid black;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.sideBarOut{
+  right: 349px;
+
+}
+.sideBarIn{
+  right: 0;
+}
+.chart{
+  text-align: center;
+  height: 650px;
+  width: 1600px;
+  position: fixed;
+  top:0;
+  left: 10;
+  border: 1px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 4;
+  background-color: white;
+  padding-top: 15px;
+}
+.chartTab{
+  position: fixed;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 5px;
+  font-weight: bolder;
+  width: 200px;
+  height: 50px;
+  left: 300px;
+  background-color: white;
+  border: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 4;
+  cursor: pointer;
+}
+.chartIn{
+  top: 0;
+}
+.chartOut{
+  top: 650px;
+}
+.texture{
+  height: 50px;
+}
+.finalButton{
+  position: absolute;
+  bottom: 5px;
+}
+.glyph{
+  height: 30px;
+}
+.tileInstructions{
+  cursor: pointer;
+  width: 100px;
+}
+.passcodeSubmissionBack{
+  height: 350px;
+  width: 350px;;
+  background-size: 100%;
+  background-image: url("/resources/images/4textures.png");
+}
+.submissionHolder{
+  width: 170px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 50px;
+  display: inline-block;
+}
+
+.submitInput{
+  width: 100px;
+}
+.instructionsHolder{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 6;
+}
+.instructionsImage{
+  height: 80%;
+  margin-top: 20px;
+  border: solid black 1px;
 }
