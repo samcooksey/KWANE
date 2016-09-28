@@ -4,14 +4,20 @@
       PASSCODE CHART
     </div>
   <div class="chart"  ng-class="{chartIn: OC.chartIn && OC.chartTabClicked, chartOut: !OC.chartIn}">
-    <img class="graph" src="resources/images/graph.png" />
+    <div>
+      <img class="graph" src="resources/images/graph.png" />
+      <h4>Use your finger on this chart to follow the PUZZLE directions to end up on the correct passcode</h4>
+    </div>
   </div>
   <div class="sideBarTab" ng-class="{sideBarTabIn: OC.sideBarIn && OC.sideBarTabClicked, sideBarTabOut: !OC.sideBarIn}" ng-init="OC.sideBarIn=true; OC.sideBarTabClicked=false" ng-click="OC.sideBarIn = !OC.sideBarIn; OC.sideBarTabClicked=true;">
     P<br /> U<br /> Z<br /> Z<br /> L<br /> E<br /> S
   </div>
   <div class="sideBar" ng-class="{sideBarIn: OC.sideBarIn && OC.sideBarTabClicked, sideBarOut: !OC.sideBarIn}">
-    <h3>Open the Passcode Chart from the top left of the screen.</h3>
+    <h3>Open the PASSCODE CHART from the top left of the screen.</h3>
     <button class="btn btn-md sidebarbtn" ng-init="OC.step1 = false;" ng-click="OC.step1=!OC.step1; OC.step2=false; OC.step3=false; OC.finalButton=false"> Step 1</button>
+    <button class="btn btn-md sidebarbtn" ng-init="OC.step2=false" ng-click="OC.step2=!OC.step2; OC.step1=false; OC.step3=false; OC.finalButton=false"> Step 2</button>
+    <button class="btn btn-md" ng-init="OC.step3=false" ng-click="OC.step3=!OC.step3; OC.step2=false; OC.step1=false; OC.finalButton=false">Step 3</button>
+    <button class="btn btn-md finalBTN" ng-init="OC.finalButton=false" ng-click="OC.finalButton=!OC.finalButton; OC.step3=false; OC.step2=false; OC.step1=false;">Final Step</button>
     <div ng-show="OC.step1">
     <h2>Which of the four stone types is the Operative currently in?</h3>
     <h3><img src="resources/textures/stone2.jpg" class="texture" /> Start on 63</h3>
@@ -19,15 +25,13 @@
     <h3><img src="resources/textures/stone3.jpg" class="texture" /> Start on 59</h3>
     <h3><img src="resources/textures/stone4.png" class="texture" /> Start on 55</h3>
     </div>
-    <button class="btn btn-md sidebarbtn" ng-init="OC.step2=false" ng-click="OC.step2=!OC.step2; OC.step1=false; OC.step3=false; OC.finalButton=false"> Step 2</button>
     <div ng-show="OC.step2">
-      <h2>Now Which Color is the temple piece that you have in that spot?</h2>
+      <h2>What color is the temple piece that you placed on your map?</h2>
       <h3><span style="color: blue">Blue?</span> Move down 4.</h3>
       <h3><span style="color: green">Green?</span> Move down 2.</h3>
       <h3><span style="color: orange">Orange?</span> Don't move.</h3>
       <h3><span style="color: pink">Pink?</span> Move up 2.</h3>
     </div>
-    <button class="btn btn-md" ng-init="OC.step3=false" ng-click="OC.step3=!OC.step3; OC.step2=false; OC.step1=false; OC.finalButton=false">Step 3</button>
     <div ng-show="OC.step3">
 
       <h2> Which type of puzzle does the operative see?</h2>
@@ -36,7 +40,6 @@
       <button class="btn btn-sm" ng-init="OC.glyphButton=false;" ng-click="OC.glyphButton=!OC.glyphButton; OC.forestButton=false; OC.spiralButton=false; OC.tilesButton=false; OC.spiralStep4=false;">Glyph</button>
       <button class="btn btn-sm" ng-init="OC.tilesButton=false;" ng-click="OC.tilesButton=!OC.tilesButton; OC.forestButton=false; OC.spiralButton=false; OC.glyphButton=false; OC.spiralStep4=false;">Tiles</button>
       <div ng-show="OC.spiralButton">
-      <h1>Spiral</h1>
       <div ng-hide="OC.spiralStep4">
       <h2>What direction does the spiral curl?</h2>
       <h3>Clockwise: Don't move.</h3>
@@ -53,9 +56,8 @@
       </div>
     </div>
     <div ng-show="OC.forestButton">
-      <h1>Forest</h1>
       <h2>What type of leaves are on the trees?</h2>
-      <h3>Pine? Move left 3.</h3>
+      <h3>Cherry Blossoms? Move left 3.</h3>
       <h3>Fall? Move left 2.</h3>
       <h3>Snowy? Move left 1.</h3>
       <h3>Otherwise stay put.</h3>
@@ -63,7 +65,6 @@
       <h1>Move on to the Final Step</h1>
     </div>
     <div ng-show="OC.glyphButton">
-      <h1>Glyph</h1>
       <h2>Match the symbols on the Glyph to the key below:</h2>
       <h4>
   <img class="glyph" src="resources/glyph-symbols/symbol1-solid.png" />
@@ -116,18 +117,17 @@ Up 1.
 <h1>Move on to the Final Step</h1>
     </div>
     <div ng-show="OC.tilesButton">
-      <h1>Floating Tiles</h1>
       <h3>Give the Operative the following instructions:</h3>
       <button class="btn btn-sm" ng-init="OC.instructions=false;" ng-click="OC.instructions=!OC.instructions;">Instructions</button>
       <div class="instructionsHolder" ng-class="{instructionsPopIn: OC.instructions}" ng-show="OC.instructions" ng-click="OC.instructions=false;">
         <img  src="resources/images/tile-instructions.png" class="instructionsImage"/>
       </div>
 
-      <h2>What color was the tile in step 4?</h2>
+      <h2>What color was the tile in step 3?</h2>
       <button class="btn btn-md" ng-init="OC.tilesBlue=false" ng-click="OC.tilesBlue=!OC.tilesBlue; OC.tilesRed=false;"><span style="color: blue">Blue?</span></button>
       <button class="btn btn-md" ng-init="OC.tilesRed=false" ng-click="OC.tilesRed=!OC.tilesRed; OC.tilesBlue=false;"><span style="color: red">Red?</span></button>
       <div ng-show="OC.tilesBlue">
-      <h3>Move up 1. What color was the tile in step 6?</h3>
+      <h3>Move up 1. What color was the tile in step 5?</h3>
       <h3><span style="color: #EBEB00">Yellow?</span> Move left 3.</h3>
       <h3><span style="color: blue">Blue?</span> Move left 2.</h3>
       <h3><span style="color: red">Red?</span> Move left 1.</h3>
@@ -135,7 +135,7 @@ Up 1.
       <h1>Move on to the Final Step</h1>
       </div>
       <div ng-show="OC.tilesRed">
-        <h3>What color was the tile in step 6?</h3>
+        <h3>What color was the tile in step 5?</h3>
         <h3><span style="color: #EBEB00">Yellow?</span> Move left 1.</h3>
         <h3><span style="color: blue">Blue?</span> Move left 2.</h3>
         <h3><span style="color: red">Red?</span> Don't Move.</h3>
@@ -144,14 +144,13 @@ Up 1.
       </div>
     </div>
     </div>
-    <div class="finalButton">
+    <div class="">
       <div ng-show="OC.finalButton">
         <h3>Input the passcode that you've landed on into the corresponding input box.</h3>
         <h3>After it has been accepted, instruct the Operative to make contact with the Information Stone in the center of the room.</h3>
         <h3>Now Move on to the next challenge!</h3>
         <h3>Once all 4 Information Stones have been activated. The Operative should make their way back to the center room. The Information Stone in the center of the Extraction Beam is their extraction point</h3>
       </div>
-      <button class="btn btn-md" ng-init="OC.finalButton=false" ng-click="OC.finalButton=!OC.finalButton; OC.step3=false; OC.step2=false; OC.step1=false;">Final Step</button>
     </div>
 
   </div>
@@ -174,6 +173,14 @@ Up 1.
 
 </div>
 <div class="middleCol">
+  <div class="victoryDiv" ng-show="OC.youveDoneIt && OC.answerCorrectness.one && OC.answerCorrectness.two && OC.answerCorrectness.three && OC.answerCorrectness.four">
+    <div class="innerVictoryDiv">
+      <h1>You've Done it!</h1>
+      <h3>Now get the Operative to activate the last Information Stone and to the extraction point before they drow.....GET DROWSY!</h3>
+      <button class="btn btn-lg" ng-click="OC.youveDoneIt=false" ng-init="OC.youveDoneIt=true;">Close</button>
+
+    </div>
+  </div>
   <h1>Welcome Oracle {{OC.player.name}}</h1>
     <h1>Here is your map of the temple</h1>
     <h2>Click the pieces on the left to rotate them. Drag them to the map below to orient them in the temple.</h2>

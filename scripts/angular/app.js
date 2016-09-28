@@ -1,7 +1,6 @@
 'use strict';
 var app = angular.module('kwaneApp', ['ngRoute']);
 var url = 'https://operation-atlantis.herokuapp.com';
-
 app.config(function($routeProvider){
   $routeProvider
   .when('/', {

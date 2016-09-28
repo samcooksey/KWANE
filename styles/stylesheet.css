@@ -60,15 +60,19 @@ body{
   margin-top: 100rem;
 }
 .blue{
+  -webkit-filter: hue-rotate(0deg);
   filter: hue-rotate(0deg);
 }
 .orange{
+  -webkit-filter: hue-rotate(180deg);
   filter: hue-rotate(180deg);
 }
 .green{
+  -webkit-filter: hue-rotate(270deg);
   filter: hue-rotate(270deg);
 }
 .pink{
+  -webkit-filter: hue-rotate(130deg);
   filter: hue-rotate(130deg);
 }
 
@@ -133,9 +137,9 @@ body{
   width: 760px;
   vertical-align: top;
   margin: auto;
-  border: 1px solid black;
   border-radius: 10px;
   padding-bottom: 10px;
+  background-color: rgba(180,197,228, 0.5);
 }
 .smallPart{
   height: 200px;
@@ -167,6 +171,8 @@ body{
   border: 1px black solid;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  background-color: rgba(61, 82, 213, 1);
+  color: #B4C5E4;
 }
 .sideBarTab{
   height: 200px;
@@ -183,6 +189,8 @@ body{
   text-align: center;
   font-weight: bolder;
   cursor: pointer;
+  background-color: rgba(61, 82, 213, 1);
+  color: #B4C5E4;
 }
 .sideBarOut{
   right: 0;
@@ -204,6 +212,9 @@ right: 0;
 animation-duration: 1s;
 animation-name: sideBarTabSlideIn;
 }
+.chart h4{
+  /*margin: 0;*/
+}
 .chart{
   text-align: center;
   height: 450px;
@@ -215,9 +226,10 @@ animation-name: sideBarTabSlideIn;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   z-index: 4;
-  background-color: white;
-  padding-top: 15px;
+  /*padding-top: 15px;*/
   top: -450px;
+  background-color: rgba(61, 82, 213, 1);
+  color: #B4C5E4;
 }
 .chartTab{
   position: fixed;
@@ -235,6 +247,8 @@ animation-name: sideBarTabSlideIn;
   z-index: 4;
   cursor: pointer;
   top: 0;
+  background-color: rgba(61, 82, 213, 1);
+  color: #B4C5E4;
 
 }
 .chartIn{
@@ -433,4 +447,60 @@ animation-name: sideBarTabSlideIn;
 .sideBar h3{
   font-size: 20px;
   margin: 8px 0 4px 0;
+}
+.meImage{
+  background-image: url("../resources/images/Me.jpg");
+}
+.finalBTN{
+  margin-top: 3px;
+  width: 210px;
+}
+.mePic{
+  height: 300px;
+}
+.topRow{
+  margin: 100px;
+}
+.greyBox{
+  background-color: rgba(61, 82, 213, 1);
+  padding-top: 20px;
+}
+body{
+  /*background-image: url('../resources/images/seigaiha.png');*/
+  background-image: url('../resources/images/sayagata-400px.png');
+}
+.aboutA{
+  color: #B4C5E4;
+}
+.greyBox{
+  color: #B4C5E4;
+  padding: 20px;
+}
+.btn{
+  background-color:#B4C5E4 ;
+  color: #3C3744;
+}
+.ROW{
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+
+}
+.victoryDiv{
+  z-index: 10;
+  position: fixed;
+  top: calc(50vh - 100px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+.innerVictoryDiv{
+  height: 200px;
+  width: 100%;
+  background-color: #3C3744;
+  color: white;
 }
