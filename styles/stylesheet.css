@@ -504,3 +504,12 @@ body{
   background-color: #3C3744;
   color: white;
 }
+.centerColumn{
+  background-color:#B4C5E4 ;
+}
+.centerColumn button{
+  /*background-color: #3C3744;*/
+  color: white;
+  background-color: rgba(61, 82, 213, 1);
+  margin-bottom: 10px;
+}
