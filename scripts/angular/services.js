@@ -67,7 +67,8 @@ sv.getSolutions = function(){
       C: [4,1,3,2],
       D: [2,3,1,4]
     };
-    var solutionArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127];
+    // var solutionArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127];
+    var solutionArray = [25, 19, 20, 49, 94, 104, 60, 95, 14, 4, 106, 26, 3, 18, 21, 51, 65, 87, 53, 40, 120, 0, 47, 119, 78, 54, 36, 45, 121, 100, 113, 9, 58, 86, 109, 88, 1, 43, 11, 89, 85, 61, 46, 82, 96, 37, 107, 10, 117, 59, 55, 22, 27, 50, 6, 13, 28, 102, 41, 39, 24, 71, 105, 108, 111, 34, 32, 42, 123, 126, 15, 31, 115, 79, 98, 76, 17, 92, 57, 2, 56, 72, 66, 29, 99, 90, 33, 64, 80, 77, 116, 44, 8, 63, 112, 122, 101, 97, 5, 127, 118, 110, 81, 12, 68, 48, 74, 70, 75, 93, 114, 69, 84, 52, 62, 35, 38, 83, 30, 7, 124, 91, 67, 23, 16, 73, 103, 125];
     sv.colorAnswers = {
       pink: -32,
       green: 32,
@@ -187,8 +188,26 @@ app.service('runnerService', ['$http','$location', function($http, $location){
         var bobbingRate = 0.04;
         var bobbingHeight = 0.2;
         var tideRate = 0.0005;
-        var ascentionSpeed = 0.1;
-        var puzzlesSolved = [false, false, false, false];
+        var ascentionSpeed = 0.01;
+        var puzzlesSolved = [];
+        $http.get(url + '/api/submitAnswer/' + id + '/1')
+        .then(function(data){
+          puzzlesSolved.push(data.data);
+          return $http.get(url + '/api/submitAnswer/' + id + '/2');
+        })
+        .then(function(data){
+          puzzlesSolved.push(data.data);
+          return $http.get(url + '/api/submitAnswer/' + id + '/3');
+        }).then(function(data){
+          puzzlesSolved.push(data.data);
+          return $http.get(url + '/api/submitAnswer/' + id + '/4');
+        }).then(function(data){
+          puzzlesSolved.push(data.data);
+        })
+        .catch(function(err){
+          console.log(err);
+        })
+
 
 
         init();
@@ -687,7 +706,7 @@ mazeParts.push(geometryOuterWallFinal);
 
 
           } else if(puzzleArray[i][j] === 5){
-            for(var k = 0; k < 3; k++){
+            for(var k = 0; k < 5; k++){
               var branch = new THREE.Mesh(wallGeometry, branchMaterial);
               branch.position.x = ((j + startJ) * -10);
               branch.position.z = (98 - (i + startI)) * 10;
