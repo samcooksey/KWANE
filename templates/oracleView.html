@@ -272,7 +272,35 @@ Up 1.
 <script>
 var src;
 var images = document.querySelectorAll('.smallPart');
-images.forEach(function(part){
+// images.forEach(function(part){
+//   part.addEventListener('dragstart', function(event){
+//   event.target.style.opacity = "0.5";
+//   event.dataTransfer.effectAllowed='move';
+//   event.dataTransfer.setData('text', this.src);
+//   if(!event.target.rotation){
+//     event.target.rotation = 0;
+//   }
+//   event.dataTransfer.setData('rotation', this.rotation);
+//   event.dataTransfer.setData('color', this.classList[1]);
+//   }, false);
+//
+//   part.addEventListener('dragend', function(event){
+//     event.target.style.opacity = "1";
+//     return true;
+//     // src = '';
+//   })
+//   part.addEventListener('click', function(event){
+//     if(!event.target.rotation){
+//       event.target.rotation = 90;
+//     }else{
+//       event.target.rotation += 90;
+//     }
+//     event.target.style.transform = 'rotate(' + event.target.rotation + 'deg)';
+//   })
+// });
+
+for(var i = 0; i < images.length; i++){
+  var part = images[i];
   part.addEventListener('dragstart', function(event){
   event.target.style.opacity = "0.5";
   event.dataTransfer.effectAllowed='move';
@@ -297,11 +325,49 @@ images.forEach(function(part){
     }
     event.target.style.transform = 'rotate(' + event.target.rotation + 'deg)';
   })
-});
+};
 
 
 var holders = document.querySelectorAll('.holder');
-holders.forEach(function(holder){
+// holders.forEach(function(holder){
+//   holder.addEventListener('dragenter', function(event){
+//
+//     event.preventDefault();
+//     event.target.style.backgroundColor = '';
+//     return true;
+//
+//   })
+//   holder.addEventListener('dragover', function(event){
+//     event.preventDefault();
+//
+//   })
+//   holder.addEventListener('dragleave', function(event){
+//     event.target.style.backgroundColor = '';
+//   })
+//   holder.addEventListener('drop', function(event){
+//     this.innerHTML = '';
+//     var data = event.dataTransfer.getData("text");
+//     var rotation = event.dataTransfer.getData('rotation');
+//     var image = document.createElement('img');
+//     var color = event.dataTransfer.getData('color');
+//     image.src = data;
+//     image.classList.add('mazeQuarter');
+//     image.rotation = Number(rotation);
+//     image.style.transform = 'rotate(' + rotation + 'deg)';
+//     image.classList.add(color);
+//     this.appendChild(image);
+//     event.stopPropagation();
+//     return false;
+//   })
+//   holder.addEventListener('click', function(event){
+//     event.target.rotation += 90;
+//     event.target.style.transform = 'rotate(' + event.target.rotation + 'deg)';
+//   })
+// })
+
+
+for( var i = 0; i < holders.length; i++){
+  var holder = holders[i];
   holder.addEventListener('dragenter', function(event){
 
     event.preventDefault();
@@ -317,6 +383,7 @@ holders.forEach(function(holder){
     event.target.style.backgroundColor = '';
   })
   holder.addEventListener('drop', function(event){
+    event.preventDefault();
     this.innerHTML = '';
     var data = event.dataTransfer.getData("text");
     var rotation = event.dataTransfer.getData('rotation');
@@ -335,5 +402,5 @@ holders.forEach(function(holder){
     event.target.rotation += 90;
     event.target.style.transform = 'rotate(' + event.target.rotation + 'deg)';
   })
-})
+}
 </script>
